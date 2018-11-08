@@ -3,7 +3,7 @@ CS 470 Capstone Project
 
 STEPS TO RUN APPLICATION
 
-Download Nodejs:
+Download the recommended LTS build of Nodejs here:
 	
 	https://nodejs.org/en/
 	
