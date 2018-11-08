@@ -1,17 +1,31 @@
 # Fitnessapp
 CS 470 Capstone Project
 
+STEPS TO RUN APPLICATION
 
-Packages to run this app:
+Download Nodejs:
+	
+	nodejs.org fs
+	
+Download yarn and npm:
 
-  	 yarn add react-native-size-matters
-  
-  	 yarn add react-navigation
+	sudo apt-get install yarn
+	sudo apt-get install npm
+
+Download expo client:
+
+	npm install -g expo-cli
   
 To start app:
 
 	cd 'into app directory'
 	expo start
+	
+Packages to run this app - Need to be in directory of project in order for this to work:
+
+  	 yarn add react-native-size-matters
+  
+  	 yarn add react-navigation
 		
 If you have errors after installing packages, make sure to run:
 
