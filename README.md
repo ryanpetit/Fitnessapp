@@ -28,6 +28,8 @@ Packages to run this app - Need to be in directory of project in order for this 
   	 yarn add react-navigation
 	 
 	 yarn add react-native-elements
+	 
+	 yarn add @material-ui/core
 		
 If you have errors after installing packages, make sure to run:
 
