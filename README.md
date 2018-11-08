@@ -26,6 +26,8 @@ Packages to run this app - Need to be in directory of project in order for this 
   	 yarn add react-native-size-matters
   
   	 yarn add react-navigation
+	 
+	 yarn add react-native-elements
 		
 If you have errors after installing packages, make sure to run:
 
