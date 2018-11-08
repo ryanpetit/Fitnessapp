@@ -3,6 +3,10 @@ CS 470 Capstone Project
 
 STEPS TO RUN APPLICATION
 
+Update packages:
+
+	sudo apt-get update && sudo apt-get upgrade
+
 Download the recommended LTS build of Nodejs here:
 	
 	https://nodejs.org/en/
