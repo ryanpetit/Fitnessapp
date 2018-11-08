@@ -12,6 +12,12 @@ Packages to run this app:
 If you have errors after installing packages, make sure to run:
 
   	yarn install
+		
+and/or  
+
+    npm install 
   
 to update dependencies
+
+To start app
 
