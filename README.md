@@ -10,8 +10,8 @@ Packages to run this app:
   
 To start app:
 
-		cd 'into app directory'
-		expo start
+	cd 'into app directory'
+	expo start
 		
 If you have errors after installing packages, make sure to run:
 
@@ -19,7 +19,7 @@ If you have errors after installing packages, make sure to run:
 		
 and/or  
 
-    npm install 
+	npm install 
   
 to update dependencies.
 
