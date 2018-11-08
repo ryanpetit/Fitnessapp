@@ -5,7 +5,7 @@ STEPS TO RUN APPLICATION
 
 Download Nodejs:
 	
-	https://nodejs.org/en/docs/
+	https://nodejs.org/en/
 	
 Download yarn and npm:
 
