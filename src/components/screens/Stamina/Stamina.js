@@ -71,7 +71,7 @@ export default class StaminaScreen extends React.Component {
                                         
                                         <Icon  
                                             active name="ios-information-circle" 
-                                            onPress={()=>{this.props.navigation.navigate('Premadescreen')}}
+                                            onPress={()=>{this.props.navigation.navigate('Workout')}}
 
 
                                             
