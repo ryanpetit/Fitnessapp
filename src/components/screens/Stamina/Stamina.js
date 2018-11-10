@@ -5,7 +5,7 @@ import { scale } from 'react-native-size-matters';
 import { withNavigation } from 'react-navigation'
 import {ListItem, List, Icon,  Left, Body, Right, Switch, Item, Container, Content, Input} from 'native-base'
 
-export default class StrengthScreen extends React.Component {
+export default class StaminaScreen extends React.Component {
     static navigationOptions = {
         header: null
     }
@@ -42,7 +42,7 @@ export default class StrengthScreen extends React.Component {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}>
-                    <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Strength Workout</Text>
+                    <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Stamina Workout</Text>
                 </View>
                 
                 <ScrollView style = {{flex: 1}}>
