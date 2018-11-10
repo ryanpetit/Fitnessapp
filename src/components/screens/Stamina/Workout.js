@@ -4,27 +4,35 @@ import { AntDesign, Feather, MaterialIcons} from '@expo/vector-icons';
 import Swiper from 'react-native-swiper';
 
 export default class WorkoutScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+	key: "1",
+	val: 1
+    }
+  }
+
   static navigationOptions = {
     header: null
   }
+	
 
   async storeRoutine(key, routine) {
 	//wait for promise to be resolved
 	try {
-	    var itemJson = await AsyncStorage.setItem(key, JSON.stringfy(routine));
+	    var itemJson = await AsyncStorage.setItem(key, JSON.stringify(routine));
 	    return itemJson
 	}
 
 	catch(error) { 
-	   console.log("Error storing the exercise");
-	   console.log("Error");
+	   console.log("Error storing the exercise" + error);
+	   console.log(key);
+	   console.log(routine);
 	}
+	console.log("it worked??")
   }
   render() {  
     StatusBar.setBarStyle('light-content',true); 
-
-	
-    
     return ( 
 	<ImageBackground source={require('./bg.jpg')} style={imageStyles.background} blurRadius={85}>
 
@@ -68,7 +76,7 @@ export default class WorkoutScreen extends Component {
 					 	title = 'Log Workout'
 						color =  '#ffffff'
 						ButtonStyle = {{ backgroundColor: '#ff6200'}}
-						onPress={() => this.storeRoutine('12,12')}
+						onPress={() => this.storeRoutine(this.state.key,this.state.val)}
 					/>
 					
 				</View>
