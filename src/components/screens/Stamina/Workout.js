@@ -1,5 +1,5 @@
 import React , { Component }  from 'react';
-import { StyleSheet, Text, View, WebView,StatusBar, ImageBackground } from 'react-native';
+import {AsyncStorage, Button, StyleSheet, Text, View, WebView,StatusBar, ImageBackground } from 'react-native';
 import { AntDesign, Feather, MaterialIcons} from '@expo/vector-icons';
 import Swiper from 'react-native-swiper';
 
@@ -7,8 +7,24 @@ export default class WorkoutScreen extends Component {
   static navigationOptions = {
     header: null
   }
+
+  async storeRoutine(key, routine) {
+	//wait for promise to be resolved
+	try {
+	    var itemJson = await AsyncStorage.setItem(key, JSON.stringfy(routine));
+	    return itemJson
+	}
+
+	catch(error) { 
+	   console.log("Error storing the exercise");
+	   console.log("Error");
+	}
+  }
   render() {  
     StatusBar.setBarStyle('light-content',true); 
+
+	
+    
     return ( 
 	<ImageBackground source={require('./bg.jpg')} style={imageStyles.background} blurRadius={85}>
 
@@ -46,6 +62,15 @@ export default class WorkoutScreen extends Component {
 				<View style={viewStyles.description}>
 					<Text style={textStyles.descriptionHeaderText}>	WARM UP </Text>
 					<Text style={textStyles.descriptionBodyText}> {"\n"} • Jog for 15 minutes {"\n"}{"\n"} • Bench Press for 10 minutes{"\n"}{"\n"} • 10 reps of situps </Text>
+				
+				{/* Log Workout  */}
+					<Button 
+					 	title = 'Log Workout'
+						color =  '#ffffff'
+						ButtonStyle = {{ backgroundColor: '#ff6200'}}
+						onPress={() => this.storeRoutine('12,12')}
+					/>
+					
 				</View>
 			</View>
 
