@@ -11,24 +11,24 @@ export default class StaminaScreen extends React.Component {
     }
     render() {
 
-        var workouts = [
-            'Workout 1',
-            'Workout 2',
-            'Workout 3',
-            'Workout 4',
-            'Workout 5',
-            'Workout 6',
-            'Workout 7',
-            'Workout 8',
-            'Workout 9',
-            'Workout 10',
-            'Workout 11',
-            'Workout 12',
-            'Workout 13',
-            'Workout 14',
-            'Workout 15',
-            'Workout 16',
-            'Workout 17',
+        var exercises = [
+            'Exercise 1',
+            'Exercise 2',
+            'Exercise 3',
+            'Exercise 4',
+            'Exercise 5',
+            'Exercise 6',
+            'Exercise 7',
+            'Exercise 8',
+            'Exercise 9',
+            'Exercise 10',
+            'Exercise 11',
+            'Exercise 12',
+            'Exercise 13',
+            'Exercise 14',
+            'Exercise 15',
+            'Exercise 16',
+            'Exercise 17',
         ];
 
         var sets = [
@@ -47,12 +47,12 @@ export default class StaminaScreen extends React.Component {
                 
                 <ScrollView style = {{flex: 1}}>
                     <View style={styles.workout}>
-                        <List dataArray={workouts}
-                            renderRow={(workouts) =>
+                        <List dataArray={exercises}
+                            renderRow={(exercises) =>
                                 <ListItem  noIndent icon >
 
                                     <Body>
-                                        <Text style={{fontWeight: 'bold'}}>{workouts}</Text>
+                                        <Text style={{fontWeight: 'bold'}}>{exercises}</Text>
                                     </Body>
                                     <Right>
                                         

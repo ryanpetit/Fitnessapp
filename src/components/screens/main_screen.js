@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-    opacity: .6
+    
   },
   text_bar: {
     flex: .1,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#A3B7C3',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-    opacity: .6
+    
   },
   button_inner: {
     height: '70%',
@@ -96,6 +96,6 @@ const styles = StyleSheet.create({
     //backgroundColor: 'rgba(24, 229, 240, 0.25)',
     backgroundColor: 'rgba(104, 104, 104, 0.2)',
     borderRadius: 30,
-    opacity: .6,
+    
   },
 });
