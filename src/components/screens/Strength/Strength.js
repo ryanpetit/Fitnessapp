@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, TextInput, AppRegistry} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, TextInput, AppRegistry, WebView, StatusBar, ImageBackground} from 'react-native';
 import { LinearGradient } from 'expo'
 import { scale } from 'react-native-size-matters';
 import { withNavigation } from 'react-navigation'
 import {ListItem, List, Icon,  Left, Body, Right, Switch, Item, Container, Content, Input} from 'native-base'
+import { AntDesign, Feather, MaterialIcons} from '@expo/vector-icons';
+import Swiper from 'react-native-swiper';
 
 export default class StrengthScreen extends React.Component {
     static navigationOptions = {
@@ -11,24 +13,24 @@ export default class StrengthScreen extends React.Component {
     }
     render() {
 
-        var workouts = [
-            'Workout 1',
-            'Workout 2',
-            'Workout 3',
-            'Workout 4',
-            'Workout 5',
-            'Workout 6',
-            'Workout 7',
-            'Workout 8',
-            'Workout 9',
-            'Workout 10',
-            'Workout 11',
-            'Workout 12',
-            'Workout 13',
-            'Workout 14',
-            'Workout 15',
-            'Workout 16',
-            'Workout 17',
+        var exercises = [
+            'Exercise 1',
+            'Exercise 2',
+            'Exercise 3',
+            'Exercise 4',
+            'Exercise 5',
+            'Exercise 6',
+            'Exercise 7',
+            'Exercise 8',
+            'Exercise 9',
+            'Exercise 10',
+            'Exercise 11',
+            'Exercise 12',
+            'Exercise 13',
+            'Exercise 14',
+            'Exercise 15',
+            'Exercise 16',
+            'Exercise 17',
         ];
 
         var sets = [
@@ -42,17 +44,20 @@ export default class StrengthScreen extends React.Component {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}>
-                    <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Strength Workout</Text>
+                    <View style = {{flex: 0, flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
+                        <AntDesign name="arrowleft" size={40} color='#ffffff' />
+                        <Text style={{fontSize: scale(32), fontFamily : 'Avenir-Light', color: '#ffffff', textAlign: 'center' }}> Strength Workout </Text>
+                        <AntDesign name="menufold" size={40} color='#ffffff' />
+                    </View>
                 </View>
-                
                 <ScrollView style = {{flex: 1}}>
                     <View style={styles.workout}>
-                        <List dataArray={workouts}
-                            renderRow={(workouts) =>
+                        <List dataArray={exercises}
+                            renderRow={(exercises) =>
                                 <ListItem  noIndent icon >
 
                                     <Body>
-                                        <Text style={{fontWeight: 'bold'}}>{workouts}</Text>
+                                        <Text style={{fontWeight: 'bold'}}>{exercises}</Text>
                                     </Body>
                                     <Right>
                                         
@@ -71,7 +76,7 @@ export default class StrengthScreen extends React.Component {
                                         
                                         <Icon  
                                             active name="ios-information-circle" 
-                                            onPress={()=>{this.props.navigation.navigate('Premadescreen')}}
+                                            onPress={()=>{this.props.navigation.navigate('PremadeScreen')}}
 
 
                                             
@@ -107,11 +112,10 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     top: {
-        height: '15%',
+        height: '12%',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        shadowOpacity: 1,
-        shadowOffset: { width: 3, height: 4 }
+    
     },
     text_bar: {
         height: 20,
@@ -152,7 +156,7 @@ const styles = StyleSheet.create({
 
         flex: 1,
         backgroundColor: 'white',
-        opacity: 0.4,
+        opacity: 0.7,
         
     }
 });
