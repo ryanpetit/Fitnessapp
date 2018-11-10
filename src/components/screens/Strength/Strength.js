@@ -4,6 +4,7 @@ import { LinearGradient } from 'expo'
 import { scale } from 'react-native-size-matters';
 import { withNavigation } from 'react-navigation'
 import {ListItem, List, Icon,  Left, Body, Right, Switch, Item, Container, Content, Input} from 'native-base'
+import { AntDesign } from '@expo/vector-icons';
 
 export default class StrengthScreen extends React.Component {
     static navigationOptions = {
@@ -41,9 +42,11 @@ export default class StrengthScreen extends React.Component {
 
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
-                <View style={styles.top}>
-                    <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Strength Workout</Text>
-                </View>
+		<View style={{flex: 0, flexDirection: 'row', justifyContent: 'space-between', marginTop: 33}}>
+			<AntDesign name="arrowleft" size={17} color= '#ffffff' />
+			<Text style={{fontFamily: 'Avenir-Light', color: '#ffffff', fontSize: 25}} > Strength Workout </Text>
+			<AntDesign name="menufold" size={17} color= '#ffffff' />
+		</View>
                 
                 <ScrollView style = {{flex: 1}}>
                     <View style={styles.workout}>
