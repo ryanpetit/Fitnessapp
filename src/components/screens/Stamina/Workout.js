@@ -11,7 +11,7 @@ export default class WorkoutScreen extends Component {
 	wOneVal: 20,	
 
 	wTwoKey: "1",
-	wTwokey: 20,	
+	wTwoVal: 20,	
 
 	wThreeKey: "1",
 	wThreeVal: 20,	
