@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, WebView,StatusBar, ImageBackground, Image } from 'react-native';
 import { AntDesign, Feather, MaterialIcons} from '@expo/vector-icons';
 import Swiper from 'react-native-swiper';
+import { AreaChart, Grid} from 'react-native-svg-charts';
 
 export default class HistoryScreen extends Component {
   static navigationOptions = {
@@ -9,6 +10,7 @@ export default class HistoryScreen extends Component {
   }
   render() {  
     StatusBar.setBarStyle('light-content',true); 
+    const data = [ 1,2,3,4,5];
     return ( 
 	<ImageBackground source={require('./bg.jpg')} style={imageStyles.background} blurRadius={85}>
 
@@ -24,7 +26,13 @@ export default class HistoryScreen extends Component {
 		{/* Calorie Graph */}
 		<View style = {{flex: 1, flexDirection: 'row',justifyContent: 'center',flexWrap: 'wrap'}}>
 			<Text style={textStyles.workoutNameText}> Your Calorie History </Text>
-			<Image source={require('./graph.jpg')} style={{width:310,height:220}} />
+			<AreaChart 
+				style={{height: 200}}
+				data = { data }
+				svg = {{fill: 'rgba(134,65,244,0.8)'}}
+			>	
+				<Grid />
+			</AreaChart>
 		</View>
 		
 		{/* History */}
