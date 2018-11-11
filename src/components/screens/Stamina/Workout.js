@@ -7,8 +7,15 @@ export default class WorkoutScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-	key: "1",
-	val: 1
+	wOneKey: "1",
+	wOneVal: 20,	
+
+	wTwoKey: "1",
+	wTwokey: 20,	
+
+	wThreeKey: "1",
+	wThreeVal: 20,	
+
     }
   }
 
@@ -82,13 +89,12 @@ export default class WorkoutScreen extends Component {
 				<View style={viewStyles.description}>
 					<Text style={textStyles.descriptionHeaderText}>	WARM UP </Text>
 					<Text style={textStyles.descriptionBodyText}> {"\n"} • Jog for 15 minutes {"\n"}{"\n"} • Bench Press for 10 minutes{"\n"}{"\n"} • 10 reps of situps </Text>
-				
 				{/* Log Workout  */}
 					<Button 
 					 	title = 'Log Workout'
 						color =  '#ffffff'
 						ButtonStyle = {{ backgroundColor: '#ff6200'}}
-						onPress={() => this.storeRoutine(this.state.key,this.state.val)}
+						onPress={() => this.storeRoutine(this.state.wOneKey,this.state.wOneVal)}
 					/>
 					
 				</View>
@@ -115,6 +121,14 @@ export default class WorkoutScreen extends Component {
 				<View style={viewStyles.description}>
 					<Text style={textStyles.descriptionHeaderText}>	REPS </Text>
 					<Text style={textStyles.descriptionBodyText}> {"\n"} • 2 x 40 sets of Pushups {"\n"}{"\n"} • 2 Minute Break{"\n"}{"\n"} • 5 x 20 sets of Pull Ups</Text>
+				{/* Log Workout  */}
+					<Button 
+					 	title = 'Log Workout'
+						color =  '#ffffff'
+						ButtonStyle = {{ backgroundColor: '#ff6200'}}
+						onPress={() => this.storeRoutine(this.state.wTwoKey,this.state.wTwoVal)}
+					/>
+
 				</View>
 			</View>
 
@@ -139,6 +153,15 @@ export default class WorkoutScreen extends Component {
 				<View style={viewStyles.description}>
 					<Text style={textStyles.descriptionHeaderText}>	REPS </Text>
 					<Text style={textStyles.descriptionBodyText}> {"\n"} • 2 x 40 sets Weights{"\n"}{"\n"} • 4 Minute Break{"\n"}{"\n"} • 5 Birpies</Text>
+	
+				{/* Log Workout  */}
+					<Button 
+					 	title = 'Log Workout'
+						color =  '#ffffff'
+						ButtonStyle = {{ backgroundColor: '#ff6200'}}
+						onPress={() => this.storeRoutine(this.state.wThreeKey,this.state.wThreeVal)}
+					/>
+
 				</View>
 			</View>
 
