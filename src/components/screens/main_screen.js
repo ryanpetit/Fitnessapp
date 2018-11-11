@@ -52,7 +52,7 @@ class MainScreen extends React.Component {
 
           <TouchableOpacity
             style={styles.button_inner}
-            onPress={() => { this.props.navigation.navigate('Profilescreen') }}>
+            onPress={() => { this.props.navigation.navigate('History') }}>
             <AntDesign name="profile" size={95} color="#A3B7C3" />
             <Text style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold', paddingTop: 10 }}> Profile </Text>
           </TouchableOpacity>
