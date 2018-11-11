@@ -29,8 +29,20 @@ export default class WorkoutScreen extends Component {
 	   console.log(key);
 	   console.log(routine);
 	}
-	console.log("it worked??")
   }
+
+  async retrieveItem(key) {
+    try {
+	const retrievedItem = await AsyncStorage.getItem(key);
+	const item = JSON.parse(retrievedItem);
+	return item
+    }
+    catch(error) {
+	console.log("Error retrieving. Error: " + error.message)
+   }
+ }
+
+	
   render() {  
     StatusBar.setBarStyle('light-content',true); 
     return ( 
@@ -47,7 +59,7 @@ export default class WorkoutScreen extends Component {
 
 		<Swiper dot={<View style={{backgroundColor: 'rgba(255,255,255,.3)', width: 5, height: 5, borderRadius: 7, marginLeft: 7, marginRight: 7}} />}
 		activeDot={<View style={{backgroundColor: '#fff', width: 5, height: 5, borderRadius: 7, marginLeft: 7, marginRight: 7}} />}
-		paginationStyle={{ bottom: 70}} loop={false}>
+		paginationStyle={{ bottom: 50}} loop={false}>
 
 			<View style={viewStyles.container}>
 
