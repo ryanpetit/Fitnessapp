@@ -12,5 +12,5 @@ LIBRARIES REQUIRED
   npm i react-native-svg-charts
   https://www.npmjs.com/package/react-native-svg-charts
   
- If you have errors after installing libraries make sure to run rm -rf node_modules/
+ If you have hast module errors after installing libraries make sure to run rm -rf node_modules/
  then npm install
