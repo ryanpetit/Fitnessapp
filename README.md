@@ -1,50 +1,16 @@
-# Fitnessapp
-CS 470 Capstone Project
-
-STEPS TO RUN APPLICATION
-
-Update packages:
-
-	sudo apt-get update && sudo apt-get upgrade
-
-Download the recommended LTS build of Nodejs here:
-	
-	https://nodejs.org/en/
-	
-Download yarn and npm:
-
-	sudo apt-get install yarn
-	sudo apt-get install npm
-
-Download expo client:
-
-	npm install -g expo-cli
+LIBRARIES REQUIRED
+------------------
+  react-native-swiper
+  npm i react-native-swiper
+  https://github.com/leecade/react-native-swiper
   
-To start app:
-
-	cd 'into app directory'
-	expo start
-	
-Packages to run this app - Need to be in directory of project in order for this to work:
-
-  	 yarn add react-native-size-matters
+  react-native-svg (Prereququisite for svg-charts)
+  npm i react-native-svg
+  https://github.com/react-native-community/react-native-svg
   
-  	 yarn add react-navigation
-	 
-	 yarn add react-native-elements
-	 
-	 yarn add @material-ui/core
-	 
-	 yarn add native-base
-		
-If you have errors after installing packages, make sure to run:
-
-  	yarn install
-		
-and/or  
-
-	npm install 
+  react-native-svg-charts
+  npm i react-native-svg-charts
+  https://www.npmjs.com/package/react-native-svg-charts
   
-to update dependencies.
-
-
+ If you have hast module errors after installing libraries make sure to run rm -rf node_modules/
+ then npm install
