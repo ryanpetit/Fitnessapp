@@ -1,32 +1,42 @@
 import React, { PureComponent } from 'react';
-import {AsyncStorage, StyleSheet, Text, View, WebView,StatusBar, ImageBackground, Image } from 'react-native';
+import { AsyncStorage, Promise, Parse, StyleSheet, Text, View, WebView,StatusBar, ImageBackground, Image } from 'react-native';
 import { AntDesign, Feather, MaterialIcons} from '@expo/vector-icons';
-import Swiper from 'react-native-swiper';
 import { AreaChart, Grid} from 'react-native-svg-charts';
+import Swiper from 'react-native-swiper';
 import * as shape from 'd3-shape';
 
 export default class HistoryScreen extends PureComponent {
   static navigationOptions = {
     header: null
   }
-  async retrieveItem(key) {
 
+  async retrieveItem(key) {
     try {
 	const retrievedItem = await AsyncStorage.getItem(key);
 	const item = JSON.parse(retrievedItem);
-	console.log("here is item: " + item);
 	return item;
    } catch(err) {
 	console.log("error retrieveing item :(.  Error: " + err);
     }
-  }
+ }
+
+  fetchAll = async () => {
+   try {
+	const keys = await AsyncStorage.getAllKeys();
+	const items = await AsyncStorage.multiGet(keys);
+	console.log(items);
+	return items;
+   } catch(err) {
+	console.log("There was an error: ", err);
+   }
+}
 
   render() {  
     StatusBar.setBarStyle('light-content',true); 
     const data = [ 1,2,8,3,9,10,3,12,9,3,5];
-    const test = this.retrieveItem(1);
-    console.log(test);
-   
+    const test = this.retrieveItem("1");
+    const items = this.fetchAll();
+
     return ( 
 	<ImageBackground source={require('./bg.jpg')} style={imageStyles.background} blurRadius={85}>
 
@@ -46,13 +56,13 @@ export default class HistoryScreen extends PureComponent {
 			data = { data }
 			contentInset={{top: 30, bottom: 30}}
 			curve = { shape.curveNatural } 
-			svg = {{fill: 'rgba(249,133,0,0.8)'}}
+			svg = {{fill: 'rgba(249,133,0,0.8)', color:'#ffffff'}}
 		>	
 			<Grid />
 		</AreaChart>
 		
 		{/* History */}
-		<View style ={{flex: 5, backgroundColor:'#a2a2a2'}}>
+		<View style ={{flex: 5 }}>
 			<Text style={textStyles.descriptionHeaderText}> Your Exercise History </Text>
 		</View> 
 
