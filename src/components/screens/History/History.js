@@ -24,7 +24,6 @@ export default class HistoryScreen extends PureComponent {
    try {
 	const keys = await AsyncStorage.getAllKeys();
 	const items = await AsyncStorage.multiGet(keys);
-	console.log(items);
 	return items;
    } catch(err) {
 	console.log("There was an error: ", err);
@@ -35,12 +34,19 @@ export default class HistoryScreen extends PureComponent {
     StatusBar.setBarStyle('light-content',true); 
     const data = [ 1,2,8,3,9,10,3,12,9,3,5];
     const test = this.retrieveItem("1");
-    const items = this.fetchAll();
+
+    this.fetchAll().then( (values) => {
+	const items = values;
+	console.log(items);
+    }).catch( (err) => {
+	console.log("There was an error :/" , err);
+    });
+
 
     return ( 
 	<ImageBackground source={require('./bg.jpg')} style={imageStyles.background} blurRadius={85}>
 
-	<View style={viewStyles.container}>
+	  <View style={viewStyles.container}>
 
 		{/* Header View */}
 		<View style = {{flex: 0, flexDirection: 'row',justifyContent: 'space-around', marginTop: 33}} opacity={0.6}>
@@ -67,7 +73,7 @@ export default class HistoryScreen extends PureComponent {
 		</View> 
 
 		
-      </View> 
+        </View> 
       </ImageBackground>
 
     ); }
