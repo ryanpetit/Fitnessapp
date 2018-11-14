@@ -72,7 +72,7 @@ export default class AddWorkouts extends Component {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}>
-                    <Text style={{ color: '#A3B7C3', fontSize: 45, fontWeight: 'bold' }}> Current Workout</Text>
+                    <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold' }}> Current Workout</Text>
                 </View>
                 <View style={styles.text_bar} ></View>
                 <View style={styles.bottom}>
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         opacity: .6
     },
     top: {
-        flex: 1,
+        flex: 2,
         justifyContent: 'flex-end',
         alignItems: 'center',
         shadowOpacity: 1,
