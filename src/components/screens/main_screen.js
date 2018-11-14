@@ -29,7 +29,7 @@ class MainScreen extends React.Component {
         <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-around', paddingBottom: 10 }}>
           <TouchableOpacity
             style={styles.button_inner}
-            onPress={() => { this.props.navigation.navigate('Createscreen') }}>
+            onPress={() => { this.props.navigation.navigate('Addworkouts') }}>
             <MaterialCommunityIcons name="plus-box-outline" size={100} color="#A3B7C3" />
             <Text style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold' }}> Create </Text>
           </TouchableOpacity>

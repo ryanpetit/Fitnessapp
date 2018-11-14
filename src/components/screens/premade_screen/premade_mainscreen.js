@@ -30,32 +30,32 @@ export default class PremadeScreen extends Component{
 
         {/* Bottom of screen */}
 
-        <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', paddingBottom: 10 }}>
+        <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', padding: 5 }}>
           <TouchableOpacity
             style={styles.button_inner}
             onPress={() => { this.props.navigation.navigate('Strengthscreen') }}>
 
-            <ImageBackground source = {strengthIcon} style ={styles.img}>
+            <ImageBackground source={strengthIcon} imageStyle={{ borderRadius: 25 }} style={styles.img}>
              <Text style={styles.imgtext}> Strength </Text>
             </ImageBackground>
           </TouchableOpacity>
         </View>
 
-        <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', paddingTop: 10 }}>
+        <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', padding: 5 }}>
           <TouchableOpacity
             style={styles.button_inner}
             onPress={() => { this.props.navigation.navigate('Staminascreen') }}>
-            <ImageBackground source = {staminaIcon} style ={styles.img}>
+            <ImageBackground source={staminaIcon} imageStyle={{ borderRadius: 25 }} style={styles.img}>
               <Text style={styles.imgtext}> Stamina </Text>
             </ImageBackground>
           </TouchableOpacity>
         </View>
 
-        <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', paddingTop: 10 }}>
+        <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', padding: 5, paddingBottom: 30 }}>
           <TouchableOpacity
             style={styles.button_inner}
             onPress={() => { this.props.navigation.navigate('Stabilityscreen') }}>
-            <ImageBackground source = {stabilityIcon} style ={styles.img}>
+            <ImageBackground source={stabilityIcon} imageStyle={{ borderRadius: 25 }} style={styles.img}>
               <Text style={styles.imgtext}> Stability </Text>
             </ImageBackground>
           </TouchableOpacity>
@@ -77,9 +77,9 @@ const styles = StyleSheet.create({
   top: {
     flex: 3,
     justifyContent: 'flex-end',
-    alignItems: 'center',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
+    paddingTop: 50
     
   },
   text_bar: {
@@ -101,12 +101,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 3, height: 4 },
     //backgroundColor: 'rgba(24, 229, 240, 0.25)',
     backgroundColor: 'rgba(104, 104, 104, 0.2)',
-    borderRadius: 30,
+    
     
   },
   img: {
     width: '100%', 
-    height: '100%'
+    height: '100%',
+    borderRadius: 150 / 2
 
   },
 
