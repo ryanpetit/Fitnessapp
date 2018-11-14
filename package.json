@@ -10,11 +10,16 @@
   },
   "dependencies": {
     "expo": "^31.0.2",
+    "firebase": "^5.5.8",
     "native-base": "^2.8.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-checkbox-heaven": "^0.1.6",
     "react-native-elements": "^0.19.1",
     "react-native-size-matters": "^0.1.4",
+    "react-native-svg": "^8.0.8",
+    "react-native-svg-charts": "^5.2.0",
+    "react-native-swiper": "^1.5.13",
     "react-navigation": "^2.18.2"
   },
   "devDependencies": {

@@ -9,6 +9,7 @@ import StabilityScreen from "./screens/Stability/Stability";
 import StaminaScreen from "./screens/Stamina/Stamina";
 import WorkoutScreen from './screens/Stamina/Workout';
 import HistoryScreen from './screens/History/History';
+import AddWorkouts from './screens/create_screen/add_workouts'
 
 import { createStackNavigator } from "react-navigation";
 
@@ -19,15 +20,16 @@ export default class NavigateApp extends Component {
 }
 
 const NavigateScreens = createStackNavigator({
-  
-  Mainscreen: MainScreen,
-  Createscreen: CreateScreen,
-  Premadescreen: PremadeScreen,
-  Savescreen: SaveScreen,
-  Profilescreen: ProfileScreen,
-  Strengthscreen: StrengthScreen,
-  Stabilityscreen: StabilityScreen,
-  Staminascreen: StaminaScreen,
-  Workout: WorkoutScreen,
-  History: HistoryScreen,
+
+  //Mainscreen: MainScreen,
+  //Createscreen: CreateScreen,
+  Addworkouts: AddWorkouts,
+  //Premadescreen: PremadeScreen,
+  //Savescreen: SaveScreen,
+  //Profilescreen: ProfileScreen,
+  //Strengthscreen: StrengthScreen,
+  //Stabilityscreen: StabilityScreen,
+  //Staminascreen: StaminaScreen,
+  //Workout: WorkoutScreen,
+  //History: HistoryScreen,
 });
