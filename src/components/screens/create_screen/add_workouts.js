@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         opacity: .6
     },
     top: {
-        flex: 2,
+        flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
         shadowOpacity: 1,
