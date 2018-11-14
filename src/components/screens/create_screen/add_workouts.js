@@ -72,8 +72,9 @@ export default class AddWorkouts extends Component {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}>
-                    <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold' }}> Current Workout</Text>
+                    <Text style={{ color: '#A3B7C3', fontSize: 45, fontWeight: 'bold' }}> Current Workout</Text>
                 </View>
+                <View style={styles.text_bar} ></View>
                 <View style={styles.bottom}>
                     <FlatList
 
@@ -106,14 +107,29 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    text_bar: {
+        flex: .1,
+        margin: 8,
+        borderRadius: 15,
+        backgroundColor: '#A3B7C3',
+        shadowOpacity: 1,
+        shadowOffset: { width: 3, height: 4 },
+        opacity: .6
+    },
     top: {
         flex: 1,
-        alignItems: 'center',
         justifyContent: 'flex-end',
+        alignItems: 'center',
+        shadowOpacity: 1,
+        shadowOffset: { width: 3, height: 4 },
+        opacity: .6
     },
     bottom: {
         flex: 5,
         //backgroundColor: 'blue',
+        shadowOpacity: 1,
+        shadowOffset: { width: 3, height: 4 },
+        opacity: .6
 
     },
     listView: {
