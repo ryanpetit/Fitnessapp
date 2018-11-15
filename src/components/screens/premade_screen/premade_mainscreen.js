@@ -36,11 +36,7 @@ export default class PremadeScreen extends Component {
             onPress={() => { this.props.navigation.navigate('Strengthscreen') }}>
 
             <ImageBackground source={strengthIcon} imageStyle={{ borderRadius: 25 }} style={styles.img}>
-<<<<<<< HEAD
-             <Text style={styles.imgtext}> Strength </Text>
-=======
               <Text style={styles.imgtext}> Strength </Text>
->>>>>>> 691c1191077123840eb342acb8aca3ab434af23d
             </ImageBackground>
           </TouchableOpacity>
         </View>
@@ -83,13 +79,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-<<<<<<< HEAD
-    paddingTop: 50
-    
-=======
     opacity: .6,
     paddingTop: 50
->>>>>>> 691c1191077123840eb342acb8aca3ab434af23d
   },
   text_bar: {
     flex: .1,
@@ -98,12 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#A3B7C3',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-<<<<<<< HEAD
-    
-    
-=======
     opacity: .6,
->>>>>>> 691c1191077123840eb342acb8aca3ab434af23d
   },
   button_inner: {
     height: '100%',
@@ -114,23 +100,12 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 3, height: 4 },
     //backgroundColor: 'rgba(24, 229, 240, 0.25)',
     backgroundColor: 'rgba(104, 104, 104, 0.2)',
-<<<<<<< HEAD
-    
-    
-  },
-  img: {
-    width: '100%', 
-    height: '100%',
-    borderRadius: 150 / 2
-
-=======
     opacity: .6,
   },
   img: {
     width: '100%',
     height: '100%',
     borderRadius: 150 / 2
->>>>>>> 691c1191077123840eb342acb8aca3ab434af23d
   },
 
   imgtext: {
