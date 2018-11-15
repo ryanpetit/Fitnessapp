@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
-import * as firebase from 'firebase';
 import CheckBox from 'react-native-checkbox-heaven';
 import { LinearGradient } from 'expo';
 import { TextInput } from 'react-native-gesture-handler';
-
-var config = {
-    apiKey: "AIzaSyAzfFPi3GPLmpct3Kn-HBBTkjsEbHCY7Ro",
-    authDomain: "fitnessapp-e670b.firebaseapp.com",
-    databaseURL: "https://fitnessapp-e670b.firebaseio.com",
-    projectId: "fitnessapp-e670b",
-    storageBucket: "fitnessapp-e670b.appspot.com",
-};
-firebase.initializeApp(config);
-
-
+import firestore from '../database'
 
 export default class AddWorkouts extends Component {
     static navigationOptions = {
@@ -25,46 +14,24 @@ export default class AddWorkouts extends Component {
         super(props)
 
         this.state = {
-            workout: '',
-            workouts: [],
+            list_workouts: [],
             checked: false,
         }
+        this.ref = firestore.collection("Workouts");
     };
 
     componentDidMount = () => {
-
-        // Get data from firebase
-        firebase
-            .database()
-            .ref()
-            .child('Workout')
-            .once('value', snapshot => {
-                const data = snapshot.val()
-                if (snapshot.val()) {
-                    const newWorkoutArr = [];
-                    Object
-                        .keys(data)
-                        .forEach(workout => newWorkoutArr.push(data[workout]));
+        this.ref
+            .doc("List_Workouts")
+            .collection("Arms")
+            .get()
+            .then(snapshot => {
+                snapshot.forEach(doc => {
                     this.setState({
-                        workouts: newWorkoutArr
+                        list_workouts: [...this.state.list_workouts, doc.data().Desc]
                     })
-                }
-            })
-
-        // Once the data is captured. Register a listener so that if a user adds
-        // data to the firebase, we can get the fastest data possible
-        firebase
-            .database()
-            .ref()
-            .child("workouts")
-            .on("child_added", snapshot => {
-                const data = snapshot.val();
-                if (data) {
-                    this.setState(prevState => ({
-                        workouts: [data, ...prevState.workouts]
-                    }))
-                }
-            })
+                });
+            });
     };
 
     render() {
@@ -77,7 +44,7 @@ export default class AddWorkouts extends Component {
                 <View style={styles.bottom}>
                     <FlatList
                         style={styles.listView}
-                        data={this.state.workouts}
+                        data={this.state.list_workouts}
                         renderItem={
                             ({ item }) =>
                                 <View style={styles.workoutContainer}>
@@ -146,18 +113,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
-        opacity: .6
+        opacity: .6,
     },
     bottom: {
         flex: 5,
-        //backgroundColor: 'blue',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
         opacity: .6
-
     },
     listView: {
-        //backgroundColor: 'gray',
         flex: 1,
         margin: 10,
     },
@@ -202,7 +166,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     }
 });
-
 
 
 
