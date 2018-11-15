@@ -22,7 +22,7 @@ export default class PremadeScreen extends Component {
 
         {/* Top of screen */}
         <View style={styles.top}>
-          <Text adjustsFontSizeToFitWidth={true} numberOfLines={2} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", height: '90%', width: '100%' }}>Premade Workouts</Text>
+          <Text adjustsFontSizeToFit={true} minimumFontScale={0.1} numberOfLines={2} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", height: '90%', width: '100%' }}>Premade Workouts</Text>
         </View>
 
         {/* Middle of screen */}
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-    opacity: .6,
-    paddingTop: 50
+   
+    paddingTop: 20
   },
   text_bar: {
     flex: .1,
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#A3B7C3',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-    opacity: .6,
+    
   },
   button_inner: {
     height: '100%',
@@ -99,8 +99,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
     //backgroundColor: 'rgba(24, 229, 240, 0.25)',
-    backgroundColor: 'rgba(104, 104, 104, 0.2)',
-    opacity: .6,
+    backgroundColor: 'rgba(104, 104, 104, 0.2)'
+    
   },
   img: {
     width: '100%',

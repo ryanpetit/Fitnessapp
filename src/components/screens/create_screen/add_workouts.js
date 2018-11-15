@@ -86,6 +86,7 @@ export default class AddWorkouts extends Component {
                                     </View>
                                 </View>
                         }
+                        keyExtractor={(item, index) => index.toString()}
                     />
                 </View>
             </LinearGradient>
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#A3B7C3',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
-        opacity: .6
+        
     },
     top: {
         flex: 1,
@@ -113,13 +114,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
-        opacity: .6,
+        
     },
     bottom: {
         flex: 5,
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
-        opacity: .6
+        
     },
     listView: {
         flex: 1,

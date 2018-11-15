@@ -1,158 +1,174 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, TextInput, AppRegistry} from 'react-native';
-import { LinearGradient } from 'expo'
-import { scale } from 'react-native-size-matters';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
+import CheckBox from 'react-native-checkbox-heaven';
+import { LinearGradient } from 'expo';
+import { TextInput } from 'react-native-gesture-handler';
+import firestore from '../database'
+import { Icon } from 'react-native-elements'
 import { withNavigation } from 'react-navigation'
-import {ListItem, List, Icon,  Left, Body, Right, Switch, Item, Container, Content, Input} from 'native-base'
 
-export default class StabilityScreen extends React.Component {
+export default class AddWorkouts extends Component {
     static navigationOptions = {
         header: null
-    }
+    };
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            list_workouts: [],
+            checked: false,
+        }
+        this.ref = firestore.collection("Workouts");
+    };
+
+    componentDidMount = () => {
+        this.ref
+            .doc("List_Workouts")
+            .collection("Arms")
+            .get()
+            .then(snapshot => {
+                snapshot.forEach(doc => {
+                    this.setState({
+                        list_workouts: [...this.state.list_workouts, doc.data().Desc]
+                    })
+                });
+            });
+    };
+
     render() {
-
-        var exercises = [
-            'Exercise 1',
-            'Exercise 2',
-            'Exercise 3',
-            'Exercise 4',
-            'Exercise 5',
-            'Exercise 6',
-            'Exercise 7',
-            'Exercise 8',
-            'Exercise 9',
-            'Exercise 10',
-            'Exercise 11',
-            'Exercise 12',
-            'Exercise 13',
-            'Exercise 14',
-            'Exercise 15',
-            'Exercise 16',
-            'Exercise 17',
-        ];
-
-        var sets = [
-            '10',
-        ];
-
-        var reps = [
-            '3',
-        ];
-
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}>
-                    <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Stability Workout</Text>
+                    <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold' }}> Stability Workout</Text>
                 </View>
-                
-                <ScrollView style = {{flex: 1}}>
-                    <View style={styles.Exercise}>
-                        <List dataArray={exercises}
-                            renderRow={(exercises) =>
-                                <ListItem  noIndent icon >
+                <View style={styles.text_bar} ></View>
+                <View style={styles.bottom}>
+                    <FlatList
+                        style={styles.listView}
+                        data={this.state.list_workouts}
+                        renderItem={
+                            ({ item }) =>
+                                <View style={styles.workoutContainer}>
+                                    <View style={{ flex: 1, flexWrap: 'wrap' }}>
+                                        <Text style={styles.workoutText}>
+                                            {item}
+                                        </Text>
+                                    </View>
+                                    <View style={styles.inputFieldContainer}>
 
-                                    <Body>
-                                        <Text style={{fontWeight: 'bold'}}>{exercises}</Text>
-                                    </Body>
-                                    <Right>
-                                        
-                                        <Text style={{fontWeight: 'bold'}}>Sets:</Text>
-                                        <Text> 3 </Text>
-                                        
-
-                                        <Text style={{fontWeight: 'bold'}}>Reps:</Text>
-                                        <Text> 10 </Text>
-                                        
-
-                                        <Text style={{fontWeight: 'bold'}}>Weight: </Text>
-                                        <Item regular style={{width: 40}}>
-                                                <Input />
-                                        </Item>
-                                        
-                                        <Icon  
-                                            active name="ios-information-circle" 
-                                            onPress={()=>{this.props.navigation.navigate('Premadescreen')}}
-
-
-                                            
-                                        >
-                                        </Icon>
-                                    </Right>
-
-                                 
-                                </ListItem>
-                            }>
-                        </List>
-                    </View>
-
-
-                    
-
-
-
-                </ScrollView>
-                    
-                    
-
-               
-            </LinearGradient >
+                                        <TextInput
+                                            style={styles.workoutInput}
+                                            keyboardType='numeric'
+                                            placeholder='3'
+                                            placeholderTextColor='grey'
+                                        />
+                                        <TextInput
+                                            style={styles.workoutInput}
+                                            keyboardType='numeric'
+                                            placeholder='10'
+                                            placeholderTextColor='grey'
+                                        />
+                                        <TextInput
+                                            style={styles.workoutInput}
+                                            keyboardType='numeric'
+                                            placeholder='100'
+                                            placeholderTextColor='grey'
+                                            allowFontScaling={true}
+                                        />
+                                        <View style={styles.info}>
+                                            <Icon
+                                                name='info'
+                                                onPress={()=>{this.props.navigation.navigate('Workout')}}
+                                                size = {35}
+                                                color = '#A3B7C3'
+                                            />
+                                        </View>
+                                    </View>
+                                </View>
+                        }
+                        keyExtractor={(item, index) => index.toString()}
+                    />
+                </View>
+            </LinearGradient>
         );
     }
+
 }
-
-
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    top: {
-        height: '15%',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        shadowOpacity: 1,
-        shadowOffset: { width: 3, height: 4 }
-    },
     text_bar: {
-        height: 20,
-        margin: 20,
+        flex: .1,
+        margin: 8,
         borderRadius: 15,
         backgroundColor: '#A3B7C3',
         shadowOpacity: 1,
-        shadowOffset: { width: 3, height: 4 }
+        shadowOffset: { width: 3, height: 4 },
+        
     },
-    bottom: {
-        height: '70%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        paddingTop: 40,
-    },
-    button: {
-        width: '50%',
-        height: '40%',
-        padding: 10,
-        borderColor: 'black',
-        shadowOffset: { width: 2, height: 5 },
-    },
-    button_inner: {
+    top: {
         flex: 1,
-        backgroundColor: 'white',
         justifyContent: 'flex-end',
         alignItems: 'center',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
-        backgroundColor: 'rgba(24, 229, 240, 0.25)',
-        borderRadius: 30,
-        paddingBottom: 10
-    },
-
-    Exercise:{
-
-        flex: 1,
-        backgroundColor: 'white',
-        opacity: 0.4,
         
+    },
+    bottom: {
+        flex: 5,
+        shadowOpacity: 1,
+        shadowOffset: { width: 3, height: 4 },
+        
+    },
+    listView: {
+        flex: 1,
+        margin: 10,
+    },
+    workoutContainer: {
+        flex: 1,
+        borderRadius: 8,
+        margin: 8,
+        alignItems: 'center',
+        borderColor: '#A3B7C3',
+        borderWidth: 3,
+        flexDirection: 'row',
+        height: 50,
+    },
+    workoutText: {
+        fontSize: 15,
+        paddingLeft: 5,
+        fontWeight: 'bold',
+        color: '#A3B7C3',
+    },
+    info: {
+        flexDirection: 'row',
+        flex: 1,
+        alignItems: 'center',
+        flexWrap: 'wrap',
+    },
+    workoutInput: {
+        flex: 1,
+        margin: 5,
+        width: 50,
+        height: 35,
+        backgroundColor: '#A3B7C3',
+        borderRadius: 8,
+        fontSize: 12,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        backgroundColor: 'white'
+    },
+    inputFieldContainer: {
+        flex: 1.3,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
     }
 });
+
+
+
+
