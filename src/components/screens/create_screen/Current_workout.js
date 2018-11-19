@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import CheckBox from 'react-native-checkbox-heaven';
 import { LinearGradient } from 'expo';
 import { TextInput } from 'react-native-gesture-handler';
 import firestore from '../database'
 
-export default class StaminaScreen extends Component {
+export default class AddWorkouts extends Component {
     static navigationOptions = {
         header: null
     };
@@ -18,11 +18,13 @@ export default class StaminaScreen extends Component {
             checked: false,
             workoutChecked: []
         }
-        this.ref = firestore.collection("Stability");
+        this.ref = firestore.collection("Workouts");
     };
 
     componentDidMount = () => {
         this.ref
+            .doc("List_Workouts")
+            .collection("Arms")
             .get()
             .then(snapshot => {
                 snapshot.forEach(doc => {
@@ -41,7 +43,7 @@ export default class StaminaScreen extends Component {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}>
-                    <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}> Stabilty </Text>
+                    <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}> Add Workouts</Text>
                 </View>
                 <View style={styles.text_bar} ></View>
                 <View style={styles.bottom}>
@@ -51,6 +53,15 @@ export default class StaminaScreen extends Component {
                         renderItem={
                             ({ item }) =>
                                 <View style={styles.workoutContainer}>
+                                    <View style={styles.checkBox}>
+                                        <CheckBox
+                                            uncheckedColor='#A3B7C3'
+                                            checkedColor='green'
+                                            iconSize={35}
+                                            iconName='matMix'
+                                            onChange={(checked) => this.workoutChecked(item)}
+                                        />
+                                    </View>
                                     <View style={{ flex: 1, flexWrap: 'wrap' }}>
                                         <Text style={styles.workoutText}>
                                             {item.Desc}
@@ -76,14 +87,6 @@ export default class StaminaScreen extends Component {
                                             placeholder='Weight'
                                             placeholderTextColor='grey'
                                             allowFontScaling={true}
-                                        />
-                                        <Ionicons
-                                            style={{ margin: 5 }}
-                                            name="md-information-circle-outline"
-                                            size={35}
-                                            color='#A3B7C3'
-
-                                            onPress={() => { this.props.navigation.navigate('Workout') }}
                                         />
                                     </View>
                                 </View>
@@ -137,7 +140,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         flexDirection: 'row',
         height: 50,
-        adjustsFontSizeToFit: true,
+        adjustsFontSizeToFit: true
 
     },
     workoutText: {
@@ -168,7 +171,7 @@ const styles = StyleSheet.create({
         padding: 5
     },
     inputFieldContainer: {
-        flex: 4,
+        flex: 1.3,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-end',

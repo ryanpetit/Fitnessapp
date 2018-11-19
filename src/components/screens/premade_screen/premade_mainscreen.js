@@ -98,8 +98,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-    //backgroundColor: 'rgba(24, 229, 240, 0.25)',
-    backgroundColor: 'rgba(104, 104, 104, 0.2)',
     opacity: .6,
   },
   img: {

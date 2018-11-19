@@ -16,6 +16,7 @@ export default class AddWorkouts extends Component {
         this.state = {
             list_workouts: [],
             checked: false,
+            workoutChecked: []
         }
         this.ref = firestore.collection("Workouts");
     };
@@ -27,18 +28,22 @@ export default class AddWorkouts extends Component {
             .get()
             .then(snapshot => {
                 snapshot.forEach(doc => {
+                    console.log(doc.data());
                     this.setState({
-                        list_workouts: [...this.state.list_workouts, doc.data().Desc]
+                        list_workouts: [...this.state.list_workouts, doc.data()]
                     })
                 });
             });
-    };
+    }
+
+    workoutChecked = (item) => {
+    }
 
     render() {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}>
-                    <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold' }}> Current Workout</Text>
+                    <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}> Add Workouts</Text>
                 </View>
                 <View style={styles.text_bar} ></View>
                 <View style={styles.bottom}>
@@ -54,12 +59,12 @@ export default class AddWorkouts extends Component {
                                             checkedColor='green'
                                             iconSize={35}
                                             iconName='matMix'
-                                            onChange={(checked) => this.setState({ checked })}
+                                            onChange={(checked) => this.workoutChecked(item)}
                                         />
                                     </View>
                                     <View style={{ flex: 1, flexWrap: 'wrap' }}>
                                         <Text style={styles.workoutText}>
-                                            {item}
+                                            {item.Desc}
                                         </Text>
                                     </View>
                                     <View style={styles.inputFieldContainer}>
@@ -86,6 +91,7 @@ export default class AddWorkouts extends Component {
                                     </View>
                                 </View>
                         }
+                        keyExtractor={(item, index) => index.toString()}
                     />
                 </View>
             </LinearGradient>
@@ -134,12 +140,15 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         flexDirection: 'row',
         height: 50,
+        adjustsFontSizeToFit: true
+
     },
     workoutText: {
         fontSize: 15,
         paddingLeft: 5,
         fontWeight: 'bold',
         color: '#A3B7C3',
+        adjustsFontSizeToFit: true
     },
     checkBox: {
         flexDirection: 'row',
@@ -148,22 +157,25 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
     },
     workoutInput: {
-        flex: 1,
+        //flex: 1,
         margin: 5,
-        width: 50,
+        //width: 50,
         height: 35,
         backgroundColor: '#A3B7C3',
         borderRadius: 8,
-        fontSize: 12,
+        //fontSize: 12,
         fontWeight: 'bold',
         textAlign: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        adjustsFontSizeToFit: true,
+        padding: 5
     },
     inputFieldContainer: {
         flex: 1.3,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-end',
+        adjustsFontSizeToFit: true,
     }
 });
 
