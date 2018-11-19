@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
         padding: 5
     },
     inputFieldContainer: {
-        flex: 4,
+        flex: 1.8,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-end',

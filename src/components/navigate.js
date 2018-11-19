@@ -21,15 +21,15 @@ export default class NavigateApp extends Component {
 
 const NavigateScreens = createStackNavigator({
 
-  Mainscreen: MainScreen,
-  Addworkouts: AddWorkouts,
-  Createscreen: CreateScreen,
-  Premadescreen: PremadeScreen,
-  Savescreen: SaveScreen,
-  Profilescreen: ProfileScreen,
-  Strengthscreen: StrengthScreen,
-  Stabilityscreen: StabilityScreen,
+  //Mainscreen: MainScreen,
+  //Addworkouts: AddWorkouts,
+  //Createscreen: CreateScreen,
+  //Premadescreen: PremadeScreen,
+  //Savescreen: SaveScreen,
+  //Profilescreen: ProfileScreen,
+  //Strengthscreen: StrengthScreen,
+  //Stabilityscreen: StabilityScreen,
   Staminascreen: StaminaScreen,
-  Workout: WorkoutScreen,
-  History: HistoryScreen,
+  //Workout: WorkoutScreen,
+  //History: HistoryScreen,
 });
