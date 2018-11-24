@@ -26,7 +26,6 @@ export default class StaminaScreen extends Component {
             .get()
             .then(snapshot => {
                 snapshot.forEach(doc => {
-                    console.log(doc.data());
                     this.setState({
                         list_workouts: [...this.state.list_workouts, doc.data()]
                     })
@@ -53,7 +52,7 @@ export default class StaminaScreen extends Component {
                                 <View style={styles.workoutContainer}>
                                     <View style={{ flex: 1, flexWrap: 'wrap' }}>
                                         <Text style={styles.workoutText}>
-                                            {item.Desc}
+                                            {item.title}
                                         </Text>
                                     </View>
                                     <View style={styles.inputFieldContainer}>
@@ -82,8 +81,7 @@ export default class StaminaScreen extends Component {
                                             name="md-information-circle-outline"
                                             size={35}
                                             color='#A3B7C3'
-
-                                            onPress={() => { this.props.navigation.navigate('Workout') }}
+                                            onPress={() => this.props.navigation.navigate('Workoutinfo', { workout: item })}
                                         />
                                     </View>
                                 </View>

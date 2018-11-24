@@ -11,7 +11,6 @@ export default class AddWorkouts extends Component {
     };
 
     constructor(props) {
-        super(props)
 
         this.state = {
             list_workouts: [],
@@ -28,7 +27,7 @@ export default class AddWorkouts extends Component {
             .get()
             .then(snapshot => {
                 snapshot.forEach(doc => {
-                    console.log(doc.data());
+                    //console.log(doc.data());
                     this.setState({
                         list_workouts: [...this.state.list_workouts, doc.data()]
                     })

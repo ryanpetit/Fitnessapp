@@ -12,7 +12,6 @@ export default class StaminaScreen extends Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
             list_workouts: [],
             checked: false,
@@ -26,15 +25,12 @@ export default class StaminaScreen extends Component {
             .get()
             .then(snapshot => {
                 snapshot.forEach(doc => {
-                    console.log(doc.data());
+                    //console.log(doc.data());
                     this.setState({
                         list_workouts: [...this.state.list_workouts, doc.data()]
                     })
                 });
             });
-    }
-
-    workoutChecked = (item) => {
     }
 
     render() {
@@ -49,11 +45,11 @@ export default class StaminaScreen extends Component {
                         style={styles.listView}
                         data={this.state.list_workouts}
                         renderItem={
-                            ({ item }) =>
+                            ({ item, index }) =>
                                 <View style={styles.workoutContainer}>
                                     <View style={{ flex: 1, flexWrap: 'wrap' }}>
                                         <Text style={styles.workoutText}>
-                                            {item.Desc}
+                                            {item.title}
                                         </Text>
                                     </View>
                                     <View style={styles.inputFieldContainer}>
@@ -82,8 +78,8 @@ export default class StaminaScreen extends Component {
                                             name="md-information-circle-outline"
                                             size={35}
                                             color='#A3B7C3'
-
-                                            onPress={() => { this.props.navigation.navigate('Workout') }}
+                                            //onPress={() => { this.props.navigation.navigate('Workout', { listWorkout: this.state.list_workouts }) }}
+                                            onPress={() => this.props.navigation.navigate('Workoutinfo', { workout: item })}
                                         />
                                     </View>
                                 </View>
@@ -122,7 +118,7 @@ const styles = StyleSheet.create({
         flex: 5,
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
-        opacity: .6
+        opacity: .6,
     },
     listView: {
         flex: 1,
@@ -132,13 +128,11 @@ const styles = StyleSheet.create({
         flex: 1,
         borderRadius: 8,
         margin: 8,
-        alignItems: 'center',
         borderColor: '#A3B7C3',
         borderWidth: 3,
-        flexDirection: 'row',
-        height: 50,
+        height: 60,
         adjustsFontSizeToFit: true,
-
+        flexDirection: 'row'
     },
     workoutText: {
         flex: 2,
@@ -148,31 +142,23 @@ const styles = StyleSheet.create({
         color: '#A3B7C3',
         adjustsFontSizeToFit: true,
     },
-    checkBox: {
-        flexDirection: 'row',
-        flex: .3,
-        alignItems: 'center',
-        flexWrap: 'wrap',
-    },
     workoutInput: {
-        //flex: 1,
         margin: 5,
-        //width: 50,
-        height: 35,
+        height: 40,
         backgroundColor: '#A3B7C3',
         borderRadius: 8,
-        //fontSize: 12,
         fontWeight: 'bold',
         textAlign: 'center',
         backgroundColor: 'white',
         adjustsFontSizeToFit: true,
         padding: 5,
+        textAlign: 'center'
     },
     inputFieldContainer: {
         flex: 1.8,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         adjustsFontSizeToFit: true,
     }
 });

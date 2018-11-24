@@ -8,7 +8,7 @@ import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
 // Gradients form https://webgradients.com
 
 var strengthIcon = require('../../../../assets/Strength.jpeg');
-var staminaIcon = require('../../../../assets/Stamina.jpg');
+var staminaIcon = require('../../../../assets/Stamina.jpeg');
 var stabilityIcon = require('../../../../assets/Stability.jpeg');
 
 export default class PremadeScreen extends Component {

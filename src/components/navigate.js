@@ -6,7 +6,7 @@ import ProfileScreen from "./screens/profile_screen/profile_mainscreen";
 import PremadeScreen from "./screens/premade_screen/premade_mainscreen";
 import StrengthScreen from "./screens/Strength/Strength";
 import StabilityScreen from "./screens/Stability/Stability";
-import WorkoutScreen from './screens/Stamina/Workout';
+import WorkoutInfo from './screens/workout_info/workout_info';
 import HistoryScreen from './screens/History/History';
 import AddWorkouts from './screens/create_screen/add_workouts';
 import StaminaScreen from './screens/Stamina/Stamina';
@@ -21,15 +21,15 @@ export default class NavigateApp extends Component {
 
 const NavigateScreens = createStackNavigator({
 
-  //Mainscreen: MainScreen,
-  //Addworkouts: AddWorkouts,
-  //Createscreen: CreateScreen,
-  //Premadescreen: PremadeScreen,
-  //Savescreen: SaveScreen,
-  //Profilescreen: ProfileScreen,
-  //Strengthscreen: StrengthScreen,
-  //Stabilityscreen: StabilityScreen,
+  Mainscreen: MainScreen,
+  Addworkouts: AddWorkouts,
+  Createscreen: CreateScreen,
+  Premadescreen: PremadeScreen,
+  Savescreen: SaveScreen,
+  Profilescreen: ProfileScreen,
+  Strengthscreen: StrengthScreen,
+  Stabilityscreen: StabilityScreen,
   Staminascreen: StaminaScreen,
-  //Workout: WorkoutScreen,
-  //History: HistoryScreen,
+  Workoutinfo: WorkoutInfo,
+  History: HistoryScreen,
 });
