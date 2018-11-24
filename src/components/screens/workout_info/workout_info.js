@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 		opacity: .6,
 		justifyContent: 'center',
 		alignItems: 'center',
-		adjustsFontSizeToFit: true,
+		//adjustsFontSizeToFit: true,
 	},
 	text_bar: {
 		flex: .1,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
 	},
 	info: {
 		flex: 2,
-		justifyContent: 'flex_start',
+		justifyContent: 'flex-start',
 		alignItems: 'center',
 		shadowOpacity: 1,
 		shadowOffset: { width: 3, height: 4 },

@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         flexDirection: 'row',
         height: 50,
-        adjustsFontSizeToFit: true
+        //adjustsFontSizeToFit: true
 
     },
     workoutText: {
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         fontWeight: 'bold',
         color: '#A3B7C3',
-        adjustsFontSizeToFit: true
+        //adjustsFontSizeToFit: true
     },
     checkBox: {
         flexDirection: 'row',
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         backgroundColor: 'white',
-        adjustsFontSizeToFit: true,
+        //adjustsFontSizeToFit: true,
         padding: 5
     },
     inputFieldContainer: {
@@ -175,6 +175,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        adjustsFontSizeToFit: true,
+        //adjustsFontSizeToFit: true,
     }
 });
