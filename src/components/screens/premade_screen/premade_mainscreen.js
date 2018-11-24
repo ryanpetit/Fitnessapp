@@ -8,7 +8,7 @@ import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
 // Gradients form https://webgradients.com
 
 var strengthIcon = require('../../../../assets/Strength.jpeg');
-var staminaIcon = require('../../../../assets/Stamina.jpg');
+var staminaIcon = require('../../../../assets/Stamina.jpeg');
 var stabilityIcon = require('../../../../assets/Stability.jpeg');
 
 export default class PremadeScreen extends Component {
@@ -22,7 +22,7 @@ export default class PremadeScreen extends Component {
 
         {/* Top of screen */}
         <View style={styles.top}>
-          <Text adjustsFontSizeToFit={true} minimumFontScale={0.1} numberOfLines={2} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", height: '90%', width: '100%' }}>Premade Workouts</Text>
+          <Text adjustsFontSizeToFitWidth={true} minimumFontScale={0.1} numberOfLines={2} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", height: '90%', width: '100%' }}>Premade Workouts</Text>
         </View>
 
         {/* Middle of screen */}
@@ -98,9 +98,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-    //backgroundColor: 'rgba(24, 229, 240, 0.25)',
-    backgroundColor: 'rgba(104, 104, 104, 0.2)'
-    
+    opacity: .6,
   },
   img: {
     width: '100%',
