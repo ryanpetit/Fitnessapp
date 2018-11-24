@@ -78,7 +78,7 @@ export default class AddWorkouts extends Component {
                                         />
                                         <View style={styles.info}>
                                             <Icon
-                                                name='info'
+                                                name='arrow-forward'
                                                 onPress={()=>{this.props.navigation.navigate('Workout')}}
                                                 size = {35}
                                                 color = '#A3B7C3'
