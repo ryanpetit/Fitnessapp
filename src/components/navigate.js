@@ -21,6 +21,7 @@ export default class NavigateApp extends Component {
 
 const NavigateScreens = createStackNavigator({
 
+  
   Mainscreen: MainScreen,
   Addworkouts: AddWorkouts,
   Createscreen: CreateScreen,
