@@ -34,7 +34,7 @@ export default class HistoryScreen extends PureComponent {
 
 		{/* Header View */}
 		<View style = {{flex: 0, flexDirection: 'row',justifyContent: 'space-around', marginTop: 33}} opacity={0.6}>
-			<AntDesign name="arrowleft" size={17} color='#ffffff' />
+			<AntDesign name="arrowleft" size={17} color='#ffffff' onPress={() => this.props.navigation.goBack()} />
 			<Text style={{fontFamily : 'Avenir-Light', color: '#ffffff'}}> Workout History </Text>
 			<AntDesign name="menufold" size={17} color='#ffffff' />
 		</View>
