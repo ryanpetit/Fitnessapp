@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { createDrawerNavigator, DrawerNavigator, createStackNavigator, StackNavigator, DrawerActions} from 'react-navigation';
+import {View,Text,StyleSheet,Platform,TouchableOpacity,Image,StatusBar} from 'react-native';
+import { AntDesign, Feather, MaterialIcons} from '@expo/vector-icons';
+
 import MainScreen from "./screens/main_screen";
 import CreateScreen from "./screens/create_screen/create_mainscreen";
 import SaveScreen from "./screens/save_screen/save_mainscreen";
@@ -11,13 +15,24 @@ import HistoryScreen from './screens/History/History';
 import AddWorkouts from './screens/create_screen/add_workouts';
 import StaminaScreen from './screens/Stamina/Stamina';
 
-import { createStackNavigator } from "react-navigation";
 
+
+/*
 export default class NavigateApp extends Component {
   render() {
-    return <NavigateScreens />;
+    return (<NavigateScreens/>);
   }
 }
+*/
+
+/*
+export default class NavigateApp extends Component {
+  render() {
+    return (<yDrawerNavigator/>);
+  }
+}
+*/
+
 
 const NavigateScreens = createStackNavigator({
 
@@ -34,3 +49,33 @@ const NavigateScreens = createStackNavigator({
   Workoutinfo: WorkoutInfo,
   History: HistoryScreen,
 });
+
+
+const MyDrawerNavigator = createDrawerNavigator({
+    Home: {
+      screen: NavigateScreens,
+    },
+    Premades: {
+      screen: PremadeScreen,
+    },
+    Create: {
+      screen: CreateScreen,
+    },
+    Saved: {
+      screen: SaveScreen,
+    },
+    Profile: {
+      screen: HistoryScreen,
+    }
+  },{
+      drawerPosition: 'right',
+      //initialRouteName: 'Home',
+      drawerBackgroundColor: '#304352',
+      drawerWidth: 200,
+
+ });
+  
+ export default MyDrawerNavigator;
+ 
+
+

@@ -4,11 +4,19 @@ import { AntDesign, Feather, MaterialIcons} from '@expo/vector-icons';
 import Swiper from 'react-native-swiper';
 import { AreaChart, Grid} from 'react-native-svg-charts';
 import * as shape from 'd3-shape';
+import { createDrawerNavigator, DrawerNavigator} from 'react-navigation';
 
 export default class HistoryScreen extends PureComponent {
   static navigationOptions = {
-    header: null
-  }
+    header: null,
+    drawerLabel: 'Profile',
+    drawerIcon: ({ tintColor }) => (
+      <AntDesign 
+         name="profile"  color='#FFFF'/>
+  
+    ),
+    
+    };
   async retrieveItem(key) {
 
     try {
@@ -36,7 +44,7 @@ export default class HistoryScreen extends PureComponent {
 		<View style = {{flex: 0, flexDirection: 'row',justifyContent: 'space-around', marginTop: 33}} opacity={0.6}>
 			<AntDesign name="left" size={17} color='#ffffff' onPress={() => this.props.navigation.goBack()} />
 			<Text style={{fontFamily : 'Avenir-Light', color: '#ffffff'}}> Workout History </Text>
-			<AntDesign name="menufold" size={17} color='#ffffff' />
+			<AntDesign name="menufold" size={17} color='#ffffff' onPress={() => this.props.navigation.openDrawer()} />
 		</View>
 		
 		{/* Calorie Graph */}
@@ -67,7 +75,12 @@ const imageStyles = StyleSheet.create({
   background: {
     width: '100%', 
     height: '100%'
-  }
+  },
+
+  icon: {
+    width: 24,
+    height: 24,
+  },
 
 });
 

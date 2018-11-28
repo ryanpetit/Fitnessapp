@@ -13,7 +13,14 @@ var stabilityIcon = require('../../../../assets/Stability.jpeg');
 
 export default class PremadeScreen extends Component {
   static navigationOptions = {
-    header: null
+    header: null,
+    //drawer nav settings for page
+    drawerLabel: 'Premade',
+    drawerIcon: ({ tintColor }) => (
+      <Feather name="play-circle" color='#FFFFFF'/>
+      
+      
+    ),
   }
   render() {
     return (
@@ -22,7 +29,9 @@ export default class PremadeScreen extends Component {
 
         {/* Top of screen */}
         <View style={styles.top}>
-          <Text adjustsFontSizeToFitWidth={true} minimumFontScale={0.1} numberOfLines={2} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", height: '90%', width: '100%' }}>Premade Workouts</Text>
+          <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6}/>
+          <Text adjustsFontSizeToFitWidth={true} minimumFontScale={0.1} numberOfLines={2} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", height: '90%', width: '100%' }}>Premade Workouts</Text>        
+          <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
         </View>
 
         {/* Middle of screen */}
@@ -74,11 +83,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
+
   top: {
     flex: 3,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-around',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
+
+    alignItems: 'center',
+    flexDirection: 'row',
    
     paddingTop: 20
   },

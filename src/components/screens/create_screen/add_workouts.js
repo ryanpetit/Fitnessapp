@@ -1,98 +1,36 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
-import CheckBox from 'react-native-checkbox-heaven';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo';
 import { TextInput } from 'react-native-gesture-handler';
 import firestore from '../database'
+import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
 
 export default class AddWorkouts extends Component {
     static navigationOptions = {
-        header: null
+        header: null,
+        drawerLabel: 'Create',
+        drawerIcon: ({ tintColor }) => (
+          <MaterialCommunityIcons 
+            name="plus-box-outline" color='#FFFF'/>
+        ),
+      
     };
 
-    constructor(props) {
+    
 
-        this.state = {
-            list_workouts: [],
-            checked: false,
-            workoutChecked: []
-        }
-        this.ref = firestore.collection("Workouts");
-    };
-
-    componentDidMount = () => {
-        this.ref
-            .doc("List_Workouts")
-            .collection("Arms")
-            .get()
-            .then(snapshot => {
-                snapshot.forEach(doc => {
-                    //console.log(doc.data());
-                    this.setState({
-                        list_workouts: [...this.state.list_workouts, doc.data()]
-                    })
-                });
-            });
-    }
-
-    workoutChecked = (item) => {
-    }
+   
 
     render() {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
-                <View style={styles.top}>
-                    <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}> Add Workouts</Text>
+                <View style={styles.top}> 
+                    <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6}/>
+                    <Text style={{ color: '#A3B7C3', fontSize: 30, fontWeight: 'bold', textAlign: 'center' }}> Create Workout </Text>
+                    <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
                 </View>
-                <View style={styles.text_bar} ></View>
-                <View style={styles.bottom}>
-                    <FlatList
-                        style={styles.listView}
-                        data={this.state.list_workouts}
-                        renderItem={
-                            ({ item }) =>
-                                <View style={styles.workoutContainer}>
-                                    <View style={styles.checkBox}>
-                                        <CheckBox
-                                            uncheckedColor='#A3B7C3'
-                                            checkedColor='green'
-                                            iconSize={35}
-                                            iconName='matMix'
-                                            onChange={(checked) => this.workoutChecked(item)}
-                                        />
-                                    </View>
-                                    <View style={{ flex: 1, flexWrap: 'wrap' }}>
-                                        <Text style={styles.workoutText}>
-                                            {item.Desc}
-                                        </Text>
-                                    </View>
-                                    <View style={styles.inputFieldContainer}>
-
-                                        <TextInput
-                                            style={styles.workoutInput}
-                                            keyboardType='numeric'
-                                            placeholder='Sets'
-                                            placeholderTextColor='grey'
-                                        />
-                                        <TextInput
-                                            style={styles.workoutInput}
-                                            keyboardType='numeric'
-                                            placeholder='Reps'
-                                            placeholderTextColor='grey'
-                                        />
-                                        <TextInput
-                                            style={styles.workoutInput}
-                                            keyboardType='numeric'
-                                            placeholder='Weight'
-                                            placeholderTextColor='grey'
-                                            allowFontScaling={true}
-                                        />
-                                    </View>
-                                </View>
-                        }
-                        keyExtractor={(item, index) => index.toString()}
-                    />
-                </View>
+                
+                
             </LinearGradient>
         );
     }
@@ -105,26 +43,28 @@ const styles = StyleSheet.create({
     },
     text_bar: {
         flex: .1,
-        margin: 8,
+        margin: 2,
         borderRadius: 15,
         backgroundColor: '#A3B7C3',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
-        
+        opacity: .6
     },
     top: {
-        flex: 1,
-        justifyContent: 'flex-end',
+        flex: 0,
+        margin: 30,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
         alignItems: 'center',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
-        
+        opacity: .6,
     },
     bottom: {
         flex: 5,
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
-        
+        opacity: .6
     },
     listView: {
         flex: 1,
@@ -139,7 +79,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         flexDirection: 'row',
         height: 50,
-        //adjustsFontSizeToFit: true
+        //adjustsFontSizeToFit: true,
 
     },
     workoutText: {
@@ -170,14 +110,14 @@ const styles = StyleSheet.create({
         padding: 5
     },
     inputFieldContainer: {
-        flex: 1.3,
+        flex: 1.8,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-end',
         //adjustsFontSizeToFit: true,
-    }
+    },
+    icon: {
+        width: 24,
+        height: 24,
+      },
 });
-
-
-
-

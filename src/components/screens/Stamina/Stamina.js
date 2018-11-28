@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo';
 import { TextInput } from 'react-native-gesture-handler';
 import firestore from '../database'
+import { AntDesign, Feather, MaterialIcons} from '@expo/vector-icons';
 
 export default class StaminaScreen extends Component {
     static navigationOptions = {
@@ -37,7 +38,9 @@ export default class StaminaScreen extends Component {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}>
+                    <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6}/>
                     <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}> Stamina </Text>
+                    <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
                 </View>
                 <View style={styles.text_bar} ></View>
                 <View style={styles.bottom}>
@@ -108,7 +111,8 @@ const styles = StyleSheet.create({
     },
     top: {
         flex: 1,
-        justifyContent: 'flex-end',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
         alignItems: 'center',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },

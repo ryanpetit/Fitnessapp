@@ -1,16 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { LinearGradient } from 'expo'
 import { scale } from 'react-native-size-matters';
-import { withNavigation } from 'react-navigation'
+import { withNavigation, DrawerNavigator, createDrawerNavigator  } from 'react-navigation'
 import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
+import { createStackNavigator } from "react-navigation";
+
 
 // Gradients form https://webgradients.com
 
 class MainScreen extends React.Component {
   static navigationOptions = {
-    header: null
-  }
+    header: null,
+    drawerLabel: 'Home',
+      drawerIcon: ({ tintColor }) => (
+        <Feather
+          name="back"  color='#FFFF'/>
+      ),
+    };
   render() {
     return (
       //<LinearGradient style={styles.container} colors={['#005A89', '#168A78']}>
@@ -19,6 +26,7 @@ class MainScreen extends React.Component {
         {/* Top of screen */}
         <View style={styles.top}>
           <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(60), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Categories</Text>
+          <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
         </View>
 
         {/* Middle of screen */}
@@ -63,6 +71,9 @@ class MainScreen extends React.Component {
   }
 }
 
+
+
+
 export default withNavigation(MainScreen);
 
 const styles = StyleSheet.create({
@@ -71,11 +82,13 @@ const styles = StyleSheet.create({
   },
   top: {
     flex: 3,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-around',
     alignItems: 'center',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
     
+    
+    flexDirection: 'row',
   },
   text_bar: {
     flex: .1,
@@ -97,5 +110,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(104, 104, 104, 0.2)',
     borderRadius: 30,
     
+  },
+  icon: {
+    width: 234,
+    height: 34,
   },
 });

@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 import { View, Button, StyleSheet } from "react-native";
 import { LinearGradient } from "expo";
+import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
 
 export default class ProfileScreen extends Component {
   static navigationOptions = {
-    header: null
+    header: null,
+    //Nav drawer not needed
+    /*
+    drawerLabel: 'Profile',
+    drawerIcon: ({ tintColor }) => (
+      <AntDesign 
+         name="profile"  color='#FFFF'/>
+  
+    ),
+    */
   };
   render() {
     return (

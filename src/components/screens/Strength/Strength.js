@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo';
 import { TextInput } from 'react-native-gesture-handler';
@@ -8,7 +8,8 @@ import { AntDesign, Feather, MaterialIcons} from '@expo/vector-icons';
 
 export default class StaminaScreen extends Component {
     static navigationOptions = {
-        header: null
+        header: null,
+       
     };
 
     constructor(props) {
@@ -40,12 +41,10 @@ export default class StaminaScreen extends Component {
     render() {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
-                <View style={styles.top}>
-                    
+                <View style={styles.top}> 
                     <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6}/>
-                    
                     <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}> Strength </Text>
-                    <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.navigate('DrawerOpen')} opacity={0.6} />
+                    <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
                 </View>
                 <View style={styles.text_bar} ></View>
                 <View style={styles.bottom}>
@@ -177,5 +176,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-end',
         //adjustsFontSizeToFit: true,
-    }
+    },
+    icon: {
+        width: 24,
+        height: 24,
+      },
 });
