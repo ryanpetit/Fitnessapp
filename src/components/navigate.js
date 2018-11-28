@@ -50,7 +50,7 @@ const NavigateScreens = createStackNavigator({
   History: HistoryScreen,
 });
 
-
+//Drawer navigation creator. ANy screens that you want to have links to in the drawer nav will be put in here
 const MyDrawerNavigator = createDrawerNavigator({
     Home: {
       screen: NavigateScreens,
