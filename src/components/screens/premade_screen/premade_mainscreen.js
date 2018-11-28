@@ -14,7 +14,7 @@ var stabilityIcon = require('../../../../assets/Stability.jpeg');
 export default class PremadeScreen extends Component {
   static navigationOptions = {
     header: null,
-    //drawer nav settings for page
+    //drawer nav settings for page, this adds a button to the drawer nav that links to this page
     drawerLabel: 'Premade',
     drawerIcon: ({ tintColor }) => (
       <Feather name="play-circle" color='#FFFFFF'/>
@@ -29,8 +29,11 @@ export default class PremadeScreen extends Component {
 
         {/* Top of screen */}
         <View style={styles.top}>
+
+          {/*BACK BUTTON FOR DRAWER NAV*/}
           <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6}/>
           <Text adjustsFontSizeToFitWidth={true} minimumFontScale={0.1} numberOfLines={2} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", height: '90%', width: '100%' }}>Premade Workouts</Text>        
+          {/*MENU BUTTON FOR DRAWER NAV*/}
           <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
         </View>
 

@@ -25,8 +25,11 @@ export default class SaveScreen extends Component {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}> 
+                
+                    {/*BACK BUTTON FOR DRAWER NAV*/}
                     <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6}/>
                     <Text style={{ color: '#A3B7C3', fontSize: 30, fontWeight: 'bold', textAlign: 'center' }}> Saved Workouts </Text>
+                    {/*MENU BUTTON FOR DRAWER NAV*/}
                     <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
                 </View>
                 

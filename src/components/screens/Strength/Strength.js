@@ -42,8 +42,12 @@ export default class StaminaScreen extends Component {
         return (
             <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
                 <View style={styles.top}> 
+
+                    {/*FOR DRAWER NAVIGATION (adds icon that functions as back button)*/}
                     <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6}/>
                     <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}> Strength </Text>
+                   
+                    {/*FOR DRAWER NAVIGATION (sandwich menu that brings out drawer nav)*/}
                     <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
                 </View>
                 <View style={styles.text_bar} ></View>
