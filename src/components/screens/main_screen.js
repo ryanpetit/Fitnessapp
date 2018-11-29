@@ -9,7 +9,13 @@ import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
 
 class MainScreen extends React.Component {
   static navigationOptions = {
-    header: null
+    header: null,
+    //FOR DRAWER NAVIGATION (whole drawerlabel) (this puts a link to this page in the drawer nav sidebar when it slides out, determines the text it uses and the icon)
+    drawerLabel: 'Home',
+    drawerIcon: ({ tintColor }) => (
+      <Feather
+        name="home" color='#FFFF' />
+    ),
   }
   render() {
     return (
@@ -18,7 +24,8 @@ class MainScreen extends React.Component {
 
         {/* Top of screen */}
         <View style={styles.top}>
-          <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(60), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Categories</Text>
+          <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Categories</Text>
+          <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
         </View>
 
         {/* Middle of screen */}
@@ -52,7 +59,7 @@ class MainScreen extends React.Component {
 
           <TouchableOpacity
             style={styles.button_inner}
-            onPress={() => { this.props.navigation.navigate('Profilescreen') }}>
+            onPress={() => { this.props.navigation.navigate('History') }}>
             <AntDesign name="profile" size={95} color="#A3B7C3" />
             <Text style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold', paddingTop: 10 }}> Profile </Text>
           </TouchableOpacity>
@@ -70,12 +77,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   top: {
-    flex: 3,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-    opacity: .6
+    opacity: .6,
+    flexDirection: 'row',
+    padding: 30,
   },
   text_bar: {
     flex: .1,
