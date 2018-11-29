@@ -4,18 +4,21 @@ import CheckBox from 'react-native-checkbox-heaven';
 import { LinearGradient } from 'expo';
 import { TextInput } from 'react-native-gesture-handler';
 import firestore from '../database'
-
+import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
 export default class AddWorkouts extends Component {
     static navigationOptions = {
-        header: null
+        header: null,
+        //drawer nav settings for page, this adds a button to the drawer nav that links to this page
+        drawerLabel: 'Create',
+        drawerIcon: ({ tintColor }) => (
+            <Feather name="play-circle" color='#FFFFFF' />
+        )
     };
 
     constructor(props) {
 
         this.state = {
             list_workouts: [],
-            checked: false,
-            workoutChecked: []
         }
         this.ref = firestore.collection("Workouts");
     };
