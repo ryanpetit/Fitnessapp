@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Button } from 'react-native';
 import { LinearGradient } from 'expo'
 import { scale } from 'react-native-size-matters';
 import { withNavigation } from 'react-navigation'
 import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
+import { Icon } from 'react-native-elements';
 
 // Gradients form https://webgradients.com
 
@@ -17,11 +18,10 @@ export default class PremadeScreen extends Component {
     //drawer nav settings for page, this adds a button to the drawer nav that links to this page
     drawerLabel: 'Premade',
     drawerIcon: ({ tintColor }) => (
-      <Feather name="play-circle" color='#FFFFFF'/>
-      
-      
-    ),
+      <Feather name="play-circle" color='#FFFFFF' />
+    )
   }
+
   render() {
     return (
       //<LinearGradient style={styles.container} colors={['#005A89', '#168A78']}>
@@ -29,12 +29,10 @@ export default class PremadeScreen extends Component {
 
         {/* Top of screen */}
         <View style={styles.top}>
-
-          {/*BACK BUTTON FOR DRAWER NAV*/}
-          <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6}/>
-          <Text adjustsFontSizeToFitWidth={true} minimumFontScale={0.1} numberOfLines={2} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", height: '90%', width: '100%' }}>Premade Workouts</Text>        
-          {/*MENU BUTTON FOR DRAWER NAV*/}
+          <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6} />
+          <Text adjustsFontSizeToFitWidth={true} numberOfLines={2} style={{ color: '#A3B7C3', fontSize: scale(40), fontWeight: 'bold', textAlign: "center" }}>Premade Workouts</Text>
           <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
+
         </View>
 
         {/* Middle of screen */}
@@ -91,13 +89,12 @@ const styles = StyleSheet.create({
   top: {
     flex: 3,
     justifyContent: 'space-around',
+    alignItems: 'flex-end',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-
-    alignItems: 'center',
+    opacity: .6,
     flexDirection: 'row',
-   
-    paddingTop: 20
+    margin: 5
   },
   text_bar: {
     flex: .1,

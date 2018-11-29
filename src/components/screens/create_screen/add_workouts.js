@@ -5,21 +5,32 @@ import { LinearGradient } from 'expo';
 import { TextInput } from 'react-native-gesture-handler';
 import firestore from '../database'
 import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
-
 export default class AddWorkouts extends Component {
     static navigationOptions = {
         header: null,
-        drawerLabel: 'Create',
-        drawerIcon: ({ tintColor }) => (
-          <MaterialCommunityIcons 
-            name="plus-box-outline" color='#FFFF'/>
-        ),
-      
+       
     };
 
     
 
-   
+
+    componentDidMount = () => {
+        this.ref
+            .doc("List_Workouts")
+            .collection("Arms")
+            .get()
+            .then(snapshot => {
+                snapshot.forEach(doc => {
+                    //console.log(doc.data());
+                    this.setState({
+                        list_workouts: [...this.state.list_workouts, doc.data()]
+                    })
+                });
+            });
+    }
+
+    workoutChecked = (item) => {
+    }
 
     render() {
         return (

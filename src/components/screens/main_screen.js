@@ -12,15 +12,13 @@ import { createStackNavigator } from "react-navigation";
 class MainScreen extends React.Component {
   static navigationOptions = {
     header: null,
-
     //FOR DRAWER NAVIGATION (whole drawerlabel) (this puts a link to this page in the drawer nav sidebar when it slides out, determines the text it uses and the icon)
     drawerLabel: 'Home',
-      drawerIcon: ({ tintColor }) => (
-        <Feather
-          name="back"  color='#FFFF'/>
-      ),
-  };
-  
+    drawerIcon: ({ tintColor }) => (
+      <Feather
+        name="home" color='#FFFF' />
+    ),
+  }
   render() {
     return (
       //<LinearGradient style={styles.container} colors={['#005A89', '#168A78']}>
@@ -28,9 +26,7 @@ class MainScreen extends React.Component {
         
         {/* Top of screen */}
         <View style={styles.top}>
-          <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(60), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Categories</Text>
-          
-          {/*LINE BELOW FOR DRAWER NAVIGATION, puts the sandwich bar in, and on press pulls out drawer nav*/}
+          <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Categories</Text>
           <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
         </View>
 
@@ -42,7 +38,7 @@ class MainScreen extends React.Component {
         <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-around', paddingBottom: 10 }}>
           <TouchableOpacity
             style={styles.button_inner}
-            onPress={() => { this.props.navigation.navigate('Addworkouts') }}>
+            onPress={() => { this.props.navigation.navigate('Createscreen') }}>
             <MaterialCommunityIcons name="plus-box-outline" size={100} color="#A3B7C3" />
             <Text style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold' }}> Create </Text>
           </TouchableOpacity>
@@ -86,14 +82,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   top: {
-    flex: 3,
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
-    
-    
+    opacity: .6,
     flexDirection: 'row',
+    padding: 30,
   },
   text_bar: {
     flex: .1,

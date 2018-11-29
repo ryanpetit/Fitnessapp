@@ -16,27 +16,13 @@ import AddWorkouts from './screens/create_screen/add_workouts';
 import StaminaScreen from './screens/Stamina/Stamina';
 
 
-
-/*
-export default class NavigateApp extends Component {
-  render() {
-    return (<NavigateScreens/>);
-  }
-}
-*/
-
-/*
-export default class NavigateApp extends Component {
+/*export default class NavigateApp extends Component {
   render() {
     return (<yDrawerNavigator/>);
   }
-}
-*/
-
+}*/
 
 const NavigateScreens = createStackNavigator({
-
-  
   Mainscreen: MainScreen,
   Addworkouts: AddWorkouts,
   Createscreen: CreateScreen,
@@ -51,31 +37,19 @@ const NavigateScreens = createStackNavigator({
 });
 
 //Drawer navigation creator. ANy screens that you want to have links to in the drawer nav will be put in here
-const MyDrawerNavigator = createDrawerNavigator({
-    Home: {
-      screen: NavigateScreens,
-    },
-    Premades: {
-      screen: PremadeScreen,
-    },
-    Create: {
-      screen: CreateScreen,
-    },
-    Saved: {
-      screen: SaveScreen,
-    },
-    Profile: {
-      screen: HistoryScreen,
-    }
-  },{
-      drawerPosition: 'right',
-      //initialRouteName: 'Home',
-      drawerBackgroundColor: '#304352',
-      drawerWidth: 200,
-
- });
-  
- export default MyDrawerNavigator;
- 
-
+export default MyDrawerNavigator = createDrawerNavigator({
+  /*Top: {
+    screen: NavigateScreens,
+  },*/
+  //Top: NavigateScreens,
+  Home: NavigateScreens,
+  Premades: PremadeScreen,
+  Create: CreateScreen,
+  Saved: SaveScreen,
+  Profile: HistoryScreen,
+}, {
+    drawerPosition: 'right',
+    drawerBackgroundColor: '#304352',
+    drawerWidth: 200,
+  });
 
