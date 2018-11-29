@@ -25,7 +25,7 @@ const savescreen = createStackNavigator({
   Savescreen: SaveScreen
 })
 const profilescreen = createStackNavigator({
-  Profilescreen: ProfileScreen
+  Profilescreen: HistoryScreen
 })
 
 class Hidden extends React.Component {

@@ -116,7 +116,7 @@ export default class StabilityScreen extends Component {
                                         <View style={styles.checkBox}>
                                             <CheckBox
                                                 uncheckedColor='orange'
-                                                checkedColor='green'
+                                                checkedColor='red'
                                                 iconSize={35}
                                                 iconName='matMix'
                                                 checked={item.checked}

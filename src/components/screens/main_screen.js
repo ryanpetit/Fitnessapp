@@ -53,7 +53,7 @@ class MainScreen extends React.Component {
           <TouchableOpacity
             style={styles.button_inner}
             //onPress={() => { this.props.navigation.navigate('Savescreen') }}>
-            onPress={() => { alert("Feature Coming Soon") }}>
+            onPress={() => { alert(" Coming Soon") }}>
             <Feather name="save" size={100} color="orange" />
             <Text style={{ color: 'orange', fontSize: scale(30), fontWeight: 'bold' }}> Save </Text>
           </TouchableOpacity>
