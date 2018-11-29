@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, WebView, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo';
 import { StackNavigator } from 'react-navigation';
+import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons'
 
 export default class WorkoutInfo extends Component {
 	static navigationOptions = {
@@ -26,19 +27,20 @@ export default class WorkoutInfo extends Component {
 		const index = this.props.navigation.getParam('index');
 		//console.log(list_workouts[0].Desc);
 		return (
-			<LinearGradient style={{ flex: 1, }} colors={['#304352', '#09203f']}>
+			<LinearGradient style={{ flex: 1, }} colors={['#434343', '#000000']}>
 				<View style={styles.top}>
-					<Text style={{ color: '#A3B7C3', fontSize: '15%', fontWeight: 'bold' }}>Daily Workout Routine</Text>
-					<Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold' }}>{workout.title}</Text>
+					<AntDesign name="left" size={35} color='orange' onPress={() => this.props.navigation.navigate('Premades')} opacity={0.6} />
+					<Text style={{ color: 'orange', fontSize: 40, fontWeight: 'bold' }}>{workout.title}</Text>
+					<AntDesign name="menufold" size={35} color='orange' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
 				</View>
 				<View style={styles.text_bar} ></View>
 				<View style={styles.url}>
 					<WebView url={workout.url} />
 				</View>
 				<View style={styles.info}>
-					<Text style={{ color: '#A3B7C3', fontSize: '30%', fontWeight: 'bold' }}> Description </Text>
+					<Text style={{ color: 'orange', fontSize: '30%', fontWeight: 'bold' }}> Description </Text>
 					<Text style={{
-						color: '#A3B7C3', fontSize: '15%', justifyContent: 'center', flexWrap: 'wrap',
+						color: 'orange', fontSize: '15%', justifyContent: 'center', flexWrap: 'wrap',
 						padding: 10, textAlign: 'center'
 					}}>{workout.desc}</Text>
 				</View>
@@ -54,15 +56,16 @@ const styles = StyleSheet.create({
 		shadowOpacity: 1,
 		shadowOffset: { width: 3, height: 4 },
 		opacity: .6,
-		justifyContent: 'center',
+		justifyContent: 'space-around',
 		alignItems: 'center',
 		adjustsFontSizeToFit: true,
+		flexDirection: 'row'
 	},
 	text_bar: {
 		flex: .1,
 		margin: 8,
 		borderRadius: 15,
-		backgroundColor: '#A3B7C3',
+		backgroundColor: 'orange',
 		shadowOpacity: 1,
 		shadowOffset: { width: 3, height: 4 },
 		opacity: .6

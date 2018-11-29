@@ -12,40 +12,76 @@ import AddWorkouts from './screens/create_screen/add_workouts';
 import StaminaScreen from './screens/Stamina/Stamina';
 import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 
-/*export default class NavigateApp extends Component {
-  render() {
-    return <NavigateScreens />;
-  }
-}*/
+const mainscreen = createStackNavigator({
+  Mainscreen: MainScreen
+})
+const createscreen = createStackNavigator({
+  Createscreen: CreateScreen
+})
+const premadescreen = createStackNavigator({
+  Premadescreen: PremadeScreen
+})
+const savescreen = createStackNavigator({
+  Savescreen: SaveScreen
+})
+const profilescreen = createStackNavigator({
+  Profilescreen: ProfileScreen
+})
 
-const NavigateScreens = createStackNavigator({
-  Mainscreen: MainScreen,
-  Addworkouts: AddWorkouts,
-  Createscreen: CreateScreen,
-  Premadescreen: PremadeScreen,
-  Savescreen: SaveScreen,
-  Profilescreen: ProfileScreen,
-  Strengthscreen: StrengthScreen,
-  Stabilityscreen: StabilityScreen,
-  Staminascreen: StaminaScreen,
-  Workoutinfo: WorkoutInfo,
-  History: HistoryScreen,
-});
+class Hidden extends React.Component {
+  render() {
+    return null;
+  }
+}
 
 //Drawer navigation creator. ANy screens that you want to have links to in the drawer nav will be put in here
 export default MyDrawerNavigator = createDrawerNavigator({
-  /*Top: {
-    screen: NavigateScreens,
-  },*/
-  //Top: NavigateScreens,
-  Home: NavigateScreens,
-  Premades: PremadeScreen,
-  Create: CreateScreen,
-  Saved: SaveScreen,
-  Profile: HistoryScreen,
+  Home: mainscreen,
+  Premades: premadescreen,
+  Create: createscreen,
+  Saved: savescreen,
+  Profile: profilescreen,
+  Strengthscreen: {
+    screen: StrengthScreen,
+    navigationOptions: {
+      drawerLabel: <Hidden />
+    }
+  },
+  Workoutinfo: {
+    screen: WorkoutInfo,
+    navigationOptions: {
+      drawerLabel: <Hidden />
+    }
+  },
+  Historyscreen: {
+    screen: HistoryScreen,
+    navigationOptions: {
+      drawerLabel: <Hidden />
+    }
+  },
+  Addworkouts: {
+    screen: AddWorkouts,
+    navigationOptions: {
+      drawerLabel: <Hidden />
+    }
+  },
+  Staminascreen: {
+    screen: StaminaScreen,
+    navigationOptions: {
+      drawerLabel: <Hidden />
+    }
+  },
+  Stabilityscreen: {
+    screen: StabilityScreen,
+    navigationOptions: {
+      drawerLabel: <Hidden />
+    }
+  },
 }, {
     drawerPosition: 'right',
-    drawerBackgroundColor: '#304352',
+    drawerBackgroundColor: 'orange',
     drawerWidth: 200,
-  });
+    backBehavior: 'none',
 
+
+  });

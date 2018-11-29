@@ -10,27 +10,20 @@ export default class SaveScreen extends Component {
     static navigationOptions = {
         header: null,
         drawerLabel: 'Saved',
-        drawerIcon: ({ tintColor }) => (
-            <Feather
-                name="save" color='#FFFF' />
-        ),
+
 
     };
 
-
-
-
-
     render() {
         return (
-            <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
+            <LinearGradient style={styles.container} colors={['#434343', '#000000']}>
                 <View style={styles.top}>
 
                     {/*BACK BUTTON FOR DRAWER NAV*/}
-                    <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6} />
-                    <Text style={{ color: '#A3B7C3', fontSize: 30, fontWeight: 'bold', textAlign: 'center' }}> Saved Workouts </Text>
+                    <AntDesign name="left" size={35} color='orange' onPress={() => this.props.navigation.navigate('Home')} opacity={0.6} />
+                    <Text style={{ color: 'orange', fontSize: 30, fontWeight: 'bold', textAlign: 'center' }}> Saved Workouts </Text>
                     {/*MENU BUTTON FOR DRAWER NAV*/}
-                    <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
+                    <AntDesign name="menufold" size={27} color='orange' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
                 </View>
 
 
@@ -48,7 +41,7 @@ const styles = StyleSheet.create({
         flex: .1,
         margin: 2,
         borderRadius: 15,
-        backgroundColor: '#A3B7C3',
+        backgroundColor: 'orange',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
         opacity: .6
@@ -78,7 +71,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         margin: 8,
         alignItems: 'center',
-        borderColor: '#A3B7C3',
+        borderColor: 'orange',
         borderWidth: 3,
         flexDirection: 'row',
         height: 50,
@@ -89,7 +82,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         paddingLeft: 5,
         fontWeight: 'bold',
-        color: '#A3B7C3',
+        color: 'orange',
         //adjustsFontSizeToFit: true
     },
     checkBox: {
@@ -103,7 +96,7 @@ const styles = StyleSheet.create({
         margin: 5,
         //width: 50,
         height: 35,
-        backgroundColor: '#A3B7C3',
+        backgroundColor: 'orange',
         borderRadius: 8,
         //fontSize: 12,
         fontWeight: 'bold',

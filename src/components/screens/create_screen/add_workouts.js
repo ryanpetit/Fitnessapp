@@ -10,9 +10,6 @@ export default class AddWorkouts extends Component {
         header: null,
         //drawer nav settings for page, this adds a button to the drawer nav that links to this page
         drawerLabel: 'Create',
-        drawerIcon: ({ tintColor }) => (
-            <Feather name="play-circle" color='#FFFFFF' />
-        )
     };
 
     constructor(props) {

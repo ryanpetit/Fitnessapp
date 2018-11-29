@@ -7,7 +7,7 @@ import firestore from '../database'
 import CheckBox from 'react-native-checkbox-heaven';
 import { AntDesign, Feather, MaterialIcons } from '@expo/vector-icons';
 
-export default class StaminaScreen extends Component {
+export default class StabilityScreen extends Component {
 
     static navigationOptions = {
         header: null
@@ -80,11 +80,11 @@ export default class StaminaScreen extends Component {
 
     render() {
         return (
-            <LinearGradient style={styles.container} colors={['#304352', '#09203f']} >
+            <LinearGradient style={styles.container} colors={['#434343', '#000000']}>
                 <View style={styles.top}>
-                    <AntDesign name="left" size={27} color='#A3B7C3' onPress={() => this.props.navigation.goBack()} opacity={0.6} />
-                    <Text style={{ color: '#A3B7C3', fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}> Stability </Text>
-                    <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
+                    <AntDesign name="left" size={35} color='orange' onPress={() => this.props.navigation.navigate('Premades')} opacity={0.6} />
+                    <Text style={{ color: 'orange', fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}> Stability </Text>
+                    <AntDesign name="menufold" size={35} color='orange' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
                 </View>
                 <View style={styles.text_bar} ></View>
                 <View style={styles.bottom}>
@@ -115,7 +115,7 @@ export default class StaminaScreen extends Component {
                                         />
                                         <View style={styles.checkBox}>
                                             <CheckBox
-                                                uncheckedColor='#A3B7C3'
+                                                uncheckedColor='orange'
                                                 checkedColor='green'
                                                 iconSize={35}
                                                 iconName='matMix'
@@ -127,7 +127,7 @@ export default class StaminaScreen extends Component {
                                             style={{ margin: 5 }}
                                             name="md-information-circle-outline"
                                             size={35}
-                                            color='#A3B7C3'
+                                            color='orange'
                                             onPress={() => this.props.navigation.navigate('Workoutinfo', { workout: item })}
                                         />
                                     </View>
@@ -139,7 +139,7 @@ export default class StaminaScreen extends Component {
                 </View>
                 {this.renderButton()}
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={[styles.button, { height: this.state.buttonHeight, }]} >
+                    <TouchableOpacity style={[styles.button, { height: this.state.buttonHeight, }]} onPress={() => alert("WORKOUT DONE")}>
                         <Text style={{ fontSize: 40, color: 'black' }} >Finished</Text>
                     </TouchableOpacity>
                 </View>
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
         flex: .1,
         margin: 8,
         borderRadius: 15,
-        backgroundColor: '#A3B7C3',
+        backgroundColor: 'orange',
         shadowOpacity: 1,
         shadowOffset: { width: 3, height: 4 },
         opacity: .6
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         margin: 5,
         alignItems: 'center',
-        borderColor: '#A3B7C3',
+        borderColor: 'orange',
         borderWidth: 3,
         flexDirection: 'row',
         height: 60,
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     workoutText: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#A3B7C3',
+        color: 'orange',
         adjustsFontSizeToFit: true,
     },
     checkBox: {
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     workoutInput: {
         height: 40,
         width: 50,
-        backgroundColor: '#A3B7C3',
+        backgroundColor: 'orange',
         borderRadius: 8,
         fontWeight: 'bold',
         textAlign: 'center',

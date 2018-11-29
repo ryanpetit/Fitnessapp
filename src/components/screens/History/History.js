@@ -10,11 +10,7 @@ export default class HistoryScreen extends PureComponent {
   static navigationOptions = {
     header: null,
     drawerLabel: 'Profile',
-    drawerIcon: ({ tintColor }) => (
-      <AntDesign
-        name="profile" color='#FFFF' />
 
-    ),
 
   };
   async retrieveItem(key) {
@@ -41,10 +37,10 @@ export default class HistoryScreen extends PureComponent {
         <View style={viewStyles.container}>
 
           {/* Header View */}
-          <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'space-around', marginTop: 33 }} opacity={0.6}>
-            <AntDesign name="left" size={17} color='#ffffff' onPress={() => this.props.navigation.goBack()} />
-            <Text style={{ fontFamily: 'Avenir-Light', color: '#ffffff' }}> Workout History </Text>
-            <AntDesign name="menufold" size={17} color='#ffffff' onPress={() => this.props.navigation.openDrawer()} />
+          <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'space-around', marginTop: 50 }} opacity={0.6}>
+            <AntDesign name="left" size={35} color='#A3B7C3' onPress={() => this.props.navigation.navigate('Home')} opacity={0.6} />
+            <Text style={{ fontFamily: 'Avenir-Light', color: '#ffffff', fontSize: 30 }}> Workout History </Text>
+            <AntDesign name="menufold" size={35} color='#ffffff' onPress={() => this.props.navigation.openDrawer()} />
           </View>
 
           {/* Calorie Graph */}

@@ -12,20 +12,19 @@ class MainScreen extends React.Component {
     header: null,
     //FOR DRAWER NAVIGATION (whole drawerlabel) (this puts a link to this page in the drawer nav sidebar when it slides out, determines the text it uses and the icon)
     drawerLabel: 'Home',
-    drawerIcon: ({ tintColor }) => (
-      <Feather
-        name="home" color='#FFFF' />
-    ),
+
   }
   render() {
     return (
       //<LinearGradient style={styles.container} colors={['#005A89', '#168A78']}>
-      <LinearGradient style={styles.container} colors={['#304352', '#09203f']}>
+      <LinearGradient style={styles.container} colors={['#434343', '#000000']}>
+
 
         {/* Top of screen */}
         <View style={styles.top}>
-          <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: '#A3B7C3', fontSize: scale(50), fontWeight: 'bold', textAlign: "center", width: '100%' }}>Categories</Text>
-          <AntDesign name="menufold" size={27} color='#A3B7C3' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
+          <AntDesign style={{ alignItems: 'flex-end', justifyContent: 'flex-end', paddingLeft: '90%', }} name="menufold" size={35} color='orange' onPress={() => this.props.navigation.openDrawer()} opacity={0.6} />
+
+          <Text adjustsFontSizeToFitWidth={true} numberOfLines={1} style={{ color: 'orange', fontSize: scale(45), fontWeight: 'bold', textAlign: "center", width: '100%', marginTop: 30 }}>PWW Fitness</Text>
         </View>
 
         {/* Middle of screen */}
@@ -36,36 +35,38 @@ class MainScreen extends React.Component {
         <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-around', paddingBottom: 10 }}>
           <TouchableOpacity
             style={styles.button_inner}
-            onPress={() => { this.props.navigation.navigate('Createscreen') }}>
-            <MaterialCommunityIcons name="plus-box-outline" size={100} color="#A3B7C3" />
-            <Text style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold' }}> Create </Text>
+            //onPress={() => { this.props.navigation.navigate('Createscreen') }}>
+            onPress={() => { alert("Feature Coming Soon") }}>
+            <MaterialCommunityIcons name="plus-box-outline" size={100} color="orange" />
+            <Text style={{ color: 'orange', fontSize: scale(30), fontWeight: 'bold' }}> Create </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.button_inner}
             onPress={() => { this.props.navigation.navigate('Premadescreen') }}>
-            <Feather name="play-circle" size={95} color="#A3B7C3" />
-            <Text style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold', paddingTop: 10 }}> Premade </Text>
+            <Feather name="play-circle" size={95} color="orange" />
+            <Text style={{ color: 'orange', fontSize: scale(30), fontWeight: 'bold', paddingTop: 10 }}> Premade </Text>
           </TouchableOpacity>
         </View>
 
         <View style={{ flex: 3, flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-around', paddingTop: 10 }}>
           <TouchableOpacity
             style={styles.button_inner}
-            onPress={() => { this.props.navigation.navigate('Savescreen') }}>
-            <Feather name="save" size={100} color="#A3B7C3" />
-            <Text style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold' }}> Save </Text>
+            //onPress={() => { this.props.navigation.navigate('Savescreen') }}>
+            onPress={() => { alert("Feature Coming Soon") }}>
+            <Feather name="save" size={100} color="orange" />
+            <Text style={{ color: 'orange', fontSize: scale(30), fontWeight: 'bold' }}> Save </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.button_inner}
-            onPress={() => { this.props.navigation.navigate('History') }}>
-            <AntDesign name="profile" size={95} color="#A3B7C3" />
-            <Text style={{ color: '#A3B7C3', fontSize: scale(30), fontWeight: 'bold', paddingTop: 10 }}> Profile </Text>
+            onPress={() => { this.props.navigation.navigate('Historyscreen') }}>
+            <AntDesign name="profile" size={95} color="orange" />
+            <Text style={{ color: 'orange', fontSize: scale(30), fontWeight: 'bold', paddingTop: 10 }}> Profile </Text>
           </TouchableOpacity>
         </View>
+      </LinearGradient>
 
-      </LinearGradient >
     );
   }
 }
@@ -75,22 +76,23 @@ export default withNavigation(MainScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
   },
   top: {
     flex: 2,
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
     opacity: .6,
-    flexDirection: 'row',
+    flexDirection: 'column',
     padding: 30,
   },
   text_bar: {
-    flex: .1,
+    flex: .2,
     margin: 8,
     borderRadius: 15,
-    backgroundColor: '#A3B7C3',
+    backgroundColor: 'orange',
     shadowOpacity: 1,
     shadowOffset: { width: 3, height: 4 },
     opacity: .6
